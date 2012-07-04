@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2012 Agorava
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,18 +14,11 @@
  * limitations under the License.
  ******************************************************************************/
 /**
- * 
+ *
  */
 package org.agorava.facebook.impl;
 
-import static com.google.common.collect.Maps.newHashMap;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
-import javax.inject.Inject;
-
+import com.google.common.base.Joiner;
 import org.agorava.FacebookBaseService;
 import org.agorava.core.api.exception.AgoravaException;
 import org.agorava.facebook.GraphApi;
@@ -35,11 +28,15 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.type.CollectionType;
 import org.codehaus.jackson.map.type.TypeFactory;
 
-import com.google.common.base.Joiner;
+import javax.inject.Inject;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import static com.google.common.collect.Maps.newHashMap;
 
 /**
  * @author Antoine Sabot-Durand
- * 
  */
 public class GraphApiImpl extends FacebookBaseService implements GraphApi {
 
@@ -49,13 +46,13 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     @Override
     public <T> T fetchObject(String objectId, Class<T> type) {
         String uri = GRAPH_API_URL + objectId;
-        return getService().getForObject(uri, type);
+        return getService().get(uri, type);
     }
 
     @Override
     public <T> T fetchObject(String objectId, Class<T> type, Map<String, String> queryParameters) {
         String uri = buildUri(GRAPH_API_URL + objectId, queryParameters);
-        return getService().getForObject(uri, type);
+        return getService().get(uri, type);
     }
 
     @Override
@@ -70,10 +67,10 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
 
     @Override
     public <T> List<T> fetchConnections(String objectId, String connectionType, Class<T> type,
-            Map<String, String> queryParameters) {
+                                        Map<String, String> queryParameters) {
         String connectionPath = connectionType != null && connectionType.length() > 0 ? "/" + connectionType : "";
         String uri = buildUri(GRAPH_API_URL + objectId + connectionPath, queryParameters);
-        JsonNode dataNode = getService().getForObject(uri, JsonNode.class);
+        JsonNode dataNode = getService().get(uri, JsonNode.class);
         return deserializeDataList(dataNode.get("data"), type);
     }
 
@@ -94,14 +91,14 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     @SuppressWarnings("unchecked")
     public String publish(String objectId, String connectionType, Map<String, Object> data) {
         String uri = GRAPH_API_URL + objectId + "/" + connectionType;
-        Map<String, Object> response = getService().postForObject(uri, data, Map.class);
+        Map<String, Object> response = getService().post(uri, data, Map.class);
         return (String) response.get("id");
     }
 
     @Override
     public void post(String objectId, String connectionType, Map<String, String> data) {
         String uri = GRAPH_API_URL + objectId + "/" + connectionType;
-        getService().postForObject(uri, data, String.class);
+        getService().post(uri, data, String.class);
     }
 
     @Override
@@ -109,7 +106,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
         Map<String, String> deleteRequest = newHashMap();
         deleteRequest.put("method", "delete");
         String uri = GRAPH_API_URL + objectId;
-        getService().postForObject(uri, deleteRequest, String.class);
+        getService().post(uri, deleteRequest, String.class);
     }
 
     @Override
@@ -117,7 +114,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
         Map<String, String> deleteRequest = newHashMap();
         deleteRequest.put("method", "delete");
         String uri = GRAPH_API_URL + objectId + "/" + connectionType;
-        getService().postForObject(uri, deleteRequest, String.class);
+        getService().post(uri, deleteRequest, String.class);
     }
 
     @SuppressWarnings("unchecked")

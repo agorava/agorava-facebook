@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2012 Agorava
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,17 +14,11 @@
  * limitations under the License.
  ******************************************************************************/
 /**
- * 
+ *
  */
 package org.agorava.facebook.impl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.inject.Inject;
-
+import com.google.common.collect.Maps;
 import org.agorava.FacebookBaseService;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.UserService;
@@ -33,11 +27,14 @@ import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
 import org.codehaus.jackson.JsonNode;
 
-import com.google.common.collect.Maps;
+import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Antoine Sabot-Durand
- * 
  */
 public class UserServiceImpl extends FacebookBaseService implements UserService {
 
@@ -78,7 +75,7 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
 
     @Override
     public List<String> getUserPermissions() {
-        JsonNode responseNode = getService().getForObject("https://graph.facebook.com/me/permissions", JsonNode.class);
+        JsonNode responseNode = getService().get("https://graph.facebook.com/me/permissions", JsonNode.class);
         return deserializePermissionsNodeToList(responseNode);
     }
 
@@ -93,9 +90,9 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
     private List<String> deserializePermissionsNodeToList(JsonNode jsonNode) {
         JsonNode dataNode = jsonNode.get("data");
         List<String> permissions = new ArrayList<String>();
-        for (Iterator<JsonNode> elementIt = dataNode.getElements(); elementIt.hasNext();) {
+        for (Iterator<JsonNode> elementIt = dataNode.getElements(); elementIt.hasNext(); ) {
             JsonNode permissionsElement = elementIt.next();
-            for (Iterator<String> fieldNamesIt = permissionsElement.getFieldNames(); fieldNamesIt.hasNext();) {
+            for (Iterator<String> fieldNamesIt = permissionsElement.getFieldNames(); fieldNamesIt.hasNext(); ) {
                 permissions.add(fieldNamesIt.next());
             }
         }

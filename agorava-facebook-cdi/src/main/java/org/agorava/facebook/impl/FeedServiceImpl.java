@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2012 Agorava
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,38 +14,32 @@
  * limitations under the License.
  ******************************************************************************/
 /**
- * 
+ *
  */
 package org.agorava.facebook.impl;
 
-import static com.google.common.collect.Maps.newHashMap;
+import org.agorava.FacebookBaseService;
+import org.agorava.core.api.exception.AgoravaException;
+import org.agorava.facebook.FeedService;
+import org.agorava.facebook.GraphApi;
+import org.agorava.facebook.model.*;
+import org.agorava.facebook.model.Post.PostType;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.node.ObjectNode;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import org.agorava.FacebookBaseService;
-import org.agorava.core.api.exception.AgoravaException;
-import org.agorava.facebook.FeedService;
-import org.agorava.facebook.GraphApi;
-import org.agorava.facebook.model.FacebookLink;
-import org.agorava.facebook.model.LinkPost;
-import org.agorava.facebook.model.NotePost;
-import org.agorava.facebook.model.Post;
-import org.agorava.facebook.model.StatusPost;
-import org.agorava.facebook.model.Post.PostType;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ObjectNode;
+import static com.google.common.collect.Maps.newHashMap;
 
 /**
  * @author Antoine Sabot-Durand
- * 
  */
 @Named("facebookFeed")
 public class FeedServiceImpl extends FacebookBaseService implements FeedService {
@@ -181,7 +175,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     @Override
     public Post getPost(String entryId) {
 
-        ObjectNode responseNode = (ObjectNode) getService().getForObject("https://graph.facebook.com/" + entryId,
+        ObjectNode responseNode = (ObjectNode) getService().get("https://graph.facebook.com/" + entryId,
                 JsonNode.class);
         return deserializePost(null, Post.class, responseNode);
     }
@@ -235,7 +229,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
         String uri = buildUri("https://graph.facebook.com/search", params);
-        JsonNode responseNode = getService().getForObject(uri, JsonNode.class);
+        JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
 
@@ -251,7 +245,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
         String uri = buildUri("https://graph.facebook.com/me/home", params);
-        JsonNode responseNode = getService().getForObject(uri, JsonNode.class);
+        JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
 
@@ -277,7 +271,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
         String uri = buildUri("https://graph.facebook.com/" + userId + "/feed", params);
-        JsonNode responseNode = getService().getForObject(uri, JsonNode.class);
+        JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
 
@@ -288,14 +282,14 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
         String uri = buildUri(baseUri, params);
-        JsonNode responseNode = getService().getForObject(uri, JsonNode.class);
+        JsonNode responseNode = getService().get(uri, JsonNode.class);
         return responseNode;
     }
 
     private <T> List<T> deserializeList(JsonNode jsonNode, String postType, Class<T> type) {
         JsonNode dataNode = jsonNode.get("data");
         List<T> posts = new ArrayList<T>();
-        for (Iterator<JsonNode> iterator = dataNode.iterator(); iterator.hasNext();) {
+        for (Iterator<JsonNode> iterator = dataNode.iterator(); iterator.hasNext(); ) {
             posts.add(deserializePost(postType, type, (ObjectNode) iterator.next()));
         }
         return posts;
