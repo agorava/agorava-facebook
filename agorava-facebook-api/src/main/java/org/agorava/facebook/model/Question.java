@@ -1,26 +1,11 @@
-/*******************************************************************************
- * Copyright 2012 Agorava
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
 /*
- * Copyright 2012 the original author or authors.
+ * Copyright 2012 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
 package org.agorava.facebook.model;
 
 import java.util.Collections;
@@ -36,51 +23,52 @@ import java.util.List;
 
 /**
  * Model class representing a question asked by a Facebook user.
+ *
  * @author habuma
  */
 public class Question {
 
-	private final String id;
-	
-	private final String text;
+    private final String id;
 
-	private final Date createdTime;
+    private final String text;
 
-	private final Date updatedTime;
-	
-	private final Reference from;
-	
-	private List<QuestionOption> options;
+    private final Date createdTime;
 
-	public Question(String id, String text, Reference from, Date createdTime, Date updatedTime) {
-		this.id = id;
-		this.text = text;
-		this.createdTime = createdTime;
-		this.updatedTime = updatedTime;
-		this.from = from;
-	}
+    private final Date updatedTime;
 
-	public String getId() {
-		return id;
-	}
+    private final Reference from;
 
-	public String getText() {
-		return text;
-	}
+    private List<QuestionOption> options;
 
-	public Date getCreatedTime() {
-		return createdTime;
-	}
+    public Question(String id, String text, Reference from, Date createdTime, Date updatedTime) {
+        this.id = id;
+        this.text = text;
+        this.createdTime = createdTime;
+        this.updatedTime = updatedTime;
+        this.from = from;
+    }
 
-	public Date getUpdatedTime() {
-		return updatedTime;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public Reference getFrom() {
-		return from;
-	}
+    public String getText() {
+        return text;
+    }
 
-	public List<QuestionOption> getOptions() {
-		return options != null ? options : Collections.<QuestionOption>emptyList();
-	}
+    public Date getCreatedTime() {
+        return createdTime;
+    }
+
+    public Date getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public Reference getFrom() {
+        return from;
+    }
+
+    public List<QuestionOption> getOptions() {
+        return options != null ? options : Collections.<QuestionOption>emptyList();
+    }
 }

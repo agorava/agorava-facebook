@@ -1,26 +1,11 @@
-/*******************************************************************************
- * Copyright 2012 Agorava
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- ******************************************************************************/
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2012 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
 package org.agorava.facebook.jackson;
 
 import java.io.IOException;
@@ -65,21 +52,21 @@ import org.codehaus.jackson.map.annotate.JsonDeserialize;
 /**
  * Annotated mixin to add Jackson annotations to Post. Also defines Post subtypes to deserialize into based on the "type"
  * attribute.
- * 
+ *
  * @author Craig Walls
  */
 @JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "postType")
-@JsonSubTypes({ @Type(name = "checkin", value = CheckinPost.class), @Type(name = "link", value = LinkPost.class),
+@JsonSubTypes({@Type(name = "checkin", value = CheckinPost.class), @Type(name = "link", value = LinkPost.class),
         @Type(name = "note", value = NotePost.class), @Type(name = "photo", value = PhotoPost.class),
         @Type(name = "status", value = StatusPost.class), @Type(name = "video", value = VideoPost.class),
         @Type(name = "post", value = Post.class), @Type(name = "swf", value = SwfPost.class),
-        @Type(name = "music", value = MusicPost.class) })
+        @Type(name = "music", value = MusicPost.class)})
 @JsonIgnoreProperties(ignoreUnknown = true)
 abstract class PostMixin {
 
     @JsonCreator
     PostMixin(@JsonProperty("id") String id, @JsonProperty("from") Reference from,
-            @JsonProperty("created_time") Date createdTime, @JsonProperty("updated_time") Date updatedTime) {
+              @JsonProperty("created_time") Date createdTime, @JsonProperty("updated_time") Date updatedTime) {
     }
 
     @JsonProperty("to")
