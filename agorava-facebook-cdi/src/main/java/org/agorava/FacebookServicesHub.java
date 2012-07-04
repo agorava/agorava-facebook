@@ -18,22 +18,23 @@
  */
 package org.agorava;
 
-import java.lang.annotation.Annotation;
+import org.agorava.core.api.event.OAuthComplete;
+import org.agorava.core.api.event.SocialEvent.Status;
+import org.agorava.core.cdi.AbstractSocialMediaApiHub;
+import org.agorava.facebook.impl.UserServiceImpl;
+import org.jboss.solder.logging.Logger;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
-
-import org.agorava.core.api.event.OAuthComplete;
-import org.agorava.core.api.event.SocialEvent.Status;
-import org.agorava.core.cdi.AbstractSocialNetworkServicesHub;
-import org.agorava.facebook.impl.UserServiceImpl;
-import org.jboss.solder.logging.Logger;
+import java.lang.annotation.Annotation;
 
 /**
  * @author Antoine Sabot-Durand
  */
-public class FacebookServicesHub extends AbstractSocialNetworkServicesHub {
+public class FacebookServicesHub extends AbstractSocialMediaApiHub {
+
+    static private String MEDIA_NAME = "Facebook";
 
     @Inject
     Instance<FacebookBaseService> services;
@@ -55,6 +56,11 @@ public class FacebookServicesHub extends AbstractSocialNetworkServicesHub {
     @Override
     public String getVerifierParamName() {
         return "code";
+    }
+
+    @Override
+    public String getSocialMediaName() {
+        return MEDIA_NAME;
     }
 
 }
