@@ -27,7 +27,6 @@ import org.jboss.solder.logging.Logger;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
-import java.lang.annotation.Annotation;
 
 /**
  * @author Antoine Sabot-Durand
@@ -41,11 +40,6 @@ public class FacebookServicesHub extends AbstractSocialMediaApiHub {
 
     @Inject
     Logger log;
-
-    @Override
-    public Annotation getQualifier() {
-        return FacebookLiteral.INSTANCE;
-    }
 
     public void initMyProfile(@Observes @Facebook OAuthComplete oauthComplete) {
         log.debug("Initializing Facebook profile");

@@ -18,23 +18,22 @@
  */
 package org.agorava;
 
-import java.lang.annotation.Annotation;
+import org.agorava.core.api.oauth.OAuthService;
+import org.agorava.core.cdi.AbstractSocialMediaApi;
 
-import org.agorava.core.cdi.AbstractSocialNetworkService;
+import javax.inject.Inject;
 
 /**
  * @author Antoine Sabot-Durand
  */
-public class FacebookBaseService extends AbstractSocialNetworkService {
+public abstract class FacebookBaseService extends AbstractSocialMediaApi {
+
+    @Inject
+    @Facebook
+    private OAuthService service;
 
     @Override
-    public Annotation getQualifier() {
-        return FacebookLiteral.INSTANCE;
+    public OAuthService getService() {
+        return service;
     }
-
-    @Override
-    public String getApiRootUrl() {
-        return "";
-    }
-
 }
