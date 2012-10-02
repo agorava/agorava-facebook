@@ -22,7 +22,8 @@ import org.agorava.core.api.event.OAuthComplete;
 import org.agorava.core.api.event.SocialEvent.Status;
 import org.agorava.core.cdi.AbstractSocialMediaApiHub;
 import org.agorava.facebook.impl.UserServiceImpl;
-import org.jboss.solder.logging.Logger;
+import org.jboss.logging.Logger;
+//import org.jboss.solder.logging.Logger;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Instance;

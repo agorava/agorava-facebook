@@ -24,6 +24,10 @@
     <artifactId>agorava-facebook-cdi</artifactId>
 
     <dependencies>
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+		</dependency>
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -122,8 +126,8 @@
                 </dependency>
 
                 <dependency>
-                    <groupId>org.jboss.solder</groupId>
-                    <artifactId>solder-impl</artifactId>
+                    <groupId>org.agorava</groupId>
+                    <artifactId>solder-generics-impl</artifactId>
                 </dependency>
             </dependencies>
 
