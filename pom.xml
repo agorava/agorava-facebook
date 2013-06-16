@@ -24,7 +24,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.agorava</groupId>
-    <version>0.5.0-SNAPSHOT</version>
+    <version>0.5.0</version>
     <artifactId>agorava-facebook-parent</artifactId>
     <packaging>pom</packaging>
 
@@ -53,6 +53,6 @@
         <connection>scm:git:git://github.com/agorava/agorava-facebook.git</connection>
         <developerConnection>scm:git:git@github.com:agorava/agorava-facebook.git</developerConnection>
         <url>http://github.com/agorava/agorava-facebook</url>
-        <tag>HEAD</tag>
+        <tag>0.5.0</tag>
   </scm>
 </project>
