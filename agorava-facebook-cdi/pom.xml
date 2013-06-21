@@ -25,10 +25,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.logging</groupId>
-            <artifactId>jboss-logging</artifactId>
-        </dependency>
-        <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
         </dependency>
@@ -98,7 +94,6 @@
     </profiles>
 
     <build>
-        <finalName>agorava-facebook-cdi</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
