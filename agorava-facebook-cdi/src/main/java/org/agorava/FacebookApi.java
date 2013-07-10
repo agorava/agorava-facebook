@@ -18,8 +18,7 @@
  */
 package org.agorava;
 
-import org.agorava.core.api.oauth.DefaultRootOAuth20;
-//import org.jboss.solder.logging.Logger;
+import org.agorava.core.api.oauth.DefaultOAuth20Api;
 
 
 /**
@@ -27,7 +26,7 @@ import org.agorava.core.api.oauth.DefaultRootOAuth20;
  */
 
 @Facebook
-public class FacebookRoot extends DefaultRootOAuth20 {
+public class FacebookApi extends DefaultOAuth20Api {
 
     @Override
     public String getServiceName() {
