@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,10 @@
 package org.agorava.facebook.impl;
 
 import com.google.common.collect.Maps;
+import org.agorava.Facebook;
 import org.agorava.FacebookBaseService;
+import org.agorava.core.api.event.OAuthComplete;
+import org.agorava.core.api.event.SocialEvent;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.UserService;
 import org.agorava.facebook.model.FacebookProfile;
@@ -27,6 +30,7 @@ import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
 import org.codehaus.jackson.JsonNode;
 
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,6 +44,12 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
 
     @Inject
     private GraphApi graphApi;
+
+    public void initMyProfile(@Observes @Facebook OAuthComplete oauthComplete) {
+
+        if (oauthComplete.getStatus() == SocialEvent.Status.SUCCESS)
+            oauthComplete.getEventData().setUserProfile(getUserProfile());
+    }
 
     @Override
     public FacebookProfile getUserProfile() {

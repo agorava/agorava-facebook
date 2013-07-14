@@ -18,22 +18,22 @@
  */
 package org.agorava;
 
-import org.agorava.core.api.oauth.OAuthService;
-import org.agorava.core.oauth.AbstractApiService;
+import org.agorava.core.api.oauth.DefaultOAuth20Api;
 
-import javax.inject.Inject;
 
 /**
  * @author Antoine Sabot-Durand
  */
-public class FacebookBaseService extends AbstractApiService {
 
-    @Inject
-    @Facebook
-    private OAuthService service;
+@Facebook
+public class FacebookApi extends DefaultOAuth20Api {
 
     @Override
-    public OAuthService getService() {
-        return service;
+    public String getServiceName() {
+        return MEDIA_NAME;
     }
+
+    static private String MEDIA_NAME = "Facebook";
+
+
 }

@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2012 Agorava
+  ~ Copyright 2013 Agorava
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
     <parent>
         <artifactId>agorava-facebook-parent</artifactId>
         <groupId>org.agorava</groupId>
-        <version>0.5.0</version>
+        <version>0.6.0</version>
     </parent>
     <artifactId>agorava-facebook-api</artifactId>
     <dependencies>
@@ -27,7 +27,4 @@
             <artifactId>agorava-core-api</artifactId>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>agorava-facebook-api</finalName>
-    </build>
 </project>
