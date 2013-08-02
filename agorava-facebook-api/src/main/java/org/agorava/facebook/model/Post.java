@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
 
 package org.agorava.facebook.model;
 
+import org.agorava.facebook.LikeService;
+
 import java.util.Date;
 import java.util.List;
-
-import org.agorava.facebook.LikeService;
 
 
 /**

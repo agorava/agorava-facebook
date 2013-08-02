@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,10 @@
 
 package org.agorava.facebook;
 
+import org.agorava.facebook.model.ImageType;
+
 import java.util.List;
 import java.util.Map;
-
-import org.agorava.facebook.model.ImageType;
 
 /**
  * Defines low-level operations against Facebook's Graph API

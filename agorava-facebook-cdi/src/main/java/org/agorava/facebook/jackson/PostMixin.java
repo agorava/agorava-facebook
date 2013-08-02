@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,37 +17,22 @@
 
 package org.agorava.facebook.jackson;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
-import org.agorava.facebook.model.CheckinPost;
-import org.agorava.facebook.model.Comment;
-import org.agorava.facebook.model.LinkPost;
-import org.agorava.facebook.model.ListAndCount;
-import org.agorava.facebook.model.MusicPost;
-import org.agorava.facebook.model.NotePost;
-import org.agorava.facebook.model.PhotoPost;
-import org.agorava.facebook.model.Post;
-import org.agorava.facebook.model.Reference;
-import org.agorava.facebook.model.StatusPost;
-import org.agorava.facebook.model.SwfPost;
-import org.agorava.facebook.model.VideoPost;
+import org.agorava.facebook.model.*;
 import org.agorava.facebook.model.Post.PostType;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.annotate.JsonSubTypes;
+import org.codehaus.jackson.annotate.*;
 import org.codehaus.jackson.annotate.JsonSubTypes.Type;
-import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.codehaus.jackson.annotate.JsonTypeInfo.As;
 import org.codehaus.jackson.annotate.JsonTypeInfo.Id;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Annotated mixin to add Jackson annotations to Post. Also defines Post subtypes to deserialize into based on the "type"
