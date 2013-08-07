@@ -34,7 +34,7 @@ public interface CommentService {
      *
      * @param objectId the ID of the object
      * @return a list of {@link Comment}s for the specified object
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Comment> getComments(String objectId);
 
@@ -45,7 +45,7 @@ public interface CommentService {
      * @param offset   the offset into the list of comments to start retrieving comments
      * @param limit    the maximum number of comments to retrieve
      * @return a list of {@link Comment}s for the specified object
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Comment> getComments(String objectId, int offset, int limit);
 
@@ -54,7 +54,7 @@ public interface CommentService {
      *
      * @param commentId the comment ID
      * @return the requested {@link Comment}
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     Comment getComment(String commentId);
 
@@ -64,7 +64,7 @@ public interface CommentService {
      * @param objectId the object ID
      * @param message  the comment message
      * @return the new comment's ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -75,7 +75,7 @@ public interface CommentService {
      * Deletes a comment. Requires "publish_stream" permission.
      *
      * @param commentId the comment ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -87,7 +87,7 @@ public interface CommentService {
      *
      * @param objectId
      * @return a list of {@link Reference}s
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Reference> getLikes(String objectId);
 
