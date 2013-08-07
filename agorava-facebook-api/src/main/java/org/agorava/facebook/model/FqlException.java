@@ -23,6 +23,7 @@ package org.agorava.facebook.model;
  * @author habuma
  */
 @SuppressWarnings("serial")
+// TODO could we extend AgoravaException here?
 public class FqlException extends RuntimeException {
 
     public FqlException(String message) {
