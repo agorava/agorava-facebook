@@ -155,7 +155,8 @@ public class Post {
     }
 
     public int getCommentCount() {
-        return comments.getCount();
+
+        return comments != null ? comments.getCount() : 0;
     }
 
     public static enum PostType {POST, CHECKIN, LINK, NOTE, PHOTO, STATUS, VIDEO, SWF, MUSIC}
