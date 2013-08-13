@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,6 @@
 
 package org.agorava.facebook.jackson;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-
 import org.agorava.facebook.model.Comment;
 import org.agorava.facebook.model.ListAndCount;
 import org.codehaus.jackson.JsonNode;
@@ -30,6 +26,10 @@ import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 class CommentListAndCountDeserializer extends JsonDeserializer<ListAndCount<Comment>> {
 
@@ -46,9 +46,7 @@ class CommentListAndCountDeserializer extends JsonDeserializer<ListAndCount<Comm
             List<Comment> commentsList = dataNode != null ? (List<Comment>) mapper.readValue(dataNode,
                     new TypeReference<List<Comment>>() {
                     }) : Collections.<Comment>emptyList();
-            JsonNode countNode = commentsNode.get("count");
-            int commentCount = countNode != null ? countNode.getIntValue() : 0;
-            return new ListAndCount<Comment>(commentsList, commentCount);
+            return new ListAndCount<Comment>(commentsList, commentsList.size());
         }
 
         return null;

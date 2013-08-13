@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
 
 package org.agorava.facebook;
 
-import java.util.List;
-
 import org.agorava.facebook.model.Event;
 import org.agorava.facebook.model.EventInvitee;
 import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Invitation;
+
+import java.util.List;
 
 /**
  * Defines operations for creating and reading event data as well as RSVP'ing to events on behalf of a user.
@@ -36,7 +36,7 @@ public interface EventService {
      * "friends_events" permission.
      *
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -50,7 +50,7 @@ public interface EventService {
      * @param offset the offset into the list of events
      * @param limit  the maximum number of events to return
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -63,7 +63,7 @@ public interface EventService {
      *
      * @param userId the user's ID
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -78,7 +78,7 @@ public interface EventService {
      * @param offset the offset into the list of events
      * @param limit  the maximum number of events to return
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -90,7 +90,7 @@ public interface EventService {
      *
      * @param eventId the event ID
      * @return an {@link Event} object
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     Event getEvent(String eventId);
 
@@ -99,7 +99,7 @@ public interface EventService {
      *
      * @param eventId the event ID
      * @return an array of bytes containing the event's image.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     byte[] getEventImage(String eventId);
 
@@ -109,7 +109,7 @@ public interface EventService {
      * @param eventId   the event ID
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the event's image.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     byte[] getEventImage(String eventId, ImageType imageType);
 
@@ -131,7 +131,7 @@ public interface EventService {
      * @param startTime the start time of the event.
      * @param endTime   the end time of the event.
      * @return the newly created event's ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "create_event" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -142,7 +142,7 @@ public interface EventService {
      * Deletes an event. Requires "create_event" permission.
      *
      * @param eventId the ID of the event
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "create_event" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -154,7 +154,7 @@ public interface EventService {
      *
      * @param eventId the event ID.
      * @return a list of {@link EventInvitee}s for the event.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<EventInvitee> getInvited(String eventId);
 
@@ -163,7 +163,7 @@ public interface EventService {
      *
      * @param eventId the event ID.
      * @return a list of {@link EventInvitee}s for the event.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<EventInvitee> getAttending(String eventId);
 
@@ -172,7 +172,7 @@ public interface EventService {
      *
      * @param eventId the event ID.
      * @return a list of {@link EventInvitee}s for the event.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<EventInvitee> getMaybeAttending(String eventId);
 
@@ -181,7 +181,7 @@ public interface EventService {
      *
      * @param eventId the event ID.
      * @return a list of {@link EventInvitee}s for the event.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<EventInvitee> getNoReplies(String eventId);
 
@@ -190,7 +190,7 @@ public interface EventService {
      *
      * @param eventId the event ID.
      * @return a list of {@link EventInvitee}s for the event.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<EventInvitee> getDeclined(String eventId);
 
@@ -198,7 +198,7 @@ public interface EventService {
      * Accepts an invitation to an event. Requires "rsvp_event" permission.
      *
      * @param eventId the event ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "rsvp_event" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -209,7 +209,7 @@ public interface EventService {
      * RSVPs to an event with a maybe. Requires "rsvp_event" permission.
      *
      * @param eventId the event ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "rsvp_event" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -220,7 +220,7 @@ public interface EventService {
      * Declines an invitation to an event. Requires "rsvp_event" permission.
      *
      * @param eventId the event ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "rsvp_event" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -232,7 +232,7 @@ public interface EventService {
      *
      * @param query the search query (e.g., "Spring User Group")
      * @return a list of {@link Event}s matching the search query
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Event> search(String query);
 
@@ -243,7 +243,7 @@ public interface EventService {
      * @param offset the offset into the list of events
      * @param limit  the maximum number of events to return
      * @return a list of {@link Event}s matching the search query
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Event> search(String query, int offset, int limit);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
 
 package org.agorava.facebook;
 
-import java.util.List;
-
 import org.agorava.facebook.model.Account;
 import org.agorava.facebook.model.FacebookLink;
 import org.agorava.facebook.model.Page;
 import org.agorava.facebook.model.PageAdministrationException;
+
+import java.util.List;
 
 /**
  * Interface defining operations that can be performed on a Facebook pages.

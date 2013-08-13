@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
 
 package org.agorava.facebook.model;
 
+import org.agorava.core.api.UserProfile;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import org.agorava.core.api.UserProfile;
 
 /**
  * Model class containing a Facebook user's profile information.

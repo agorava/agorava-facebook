@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,12 +17,12 @@
 
 package org.agorava.facebook;
 
-import java.util.List;
-
 import org.agorava.facebook.model.Album;
 import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Photo;
 import org.agorava.facebook.model.Video;
+
+import java.util.List;
 
 /**
  * Defines operations for working with albums, photos, and videos.
