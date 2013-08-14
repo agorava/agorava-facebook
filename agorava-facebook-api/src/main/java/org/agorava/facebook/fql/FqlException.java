@@ -14,18 +14,24 @@
  * limitations under the License.
  */
 
+package org.agorava.facebook.fql;
 
-package org.agorava.facebook.model;
+import org.agorava.core.api.exception.AgoravaException;
 
 /**
- * An interface used by FqlTemplate to map FQL results to objects of a specific type, on a per-object basis.
- * Roughly analogous to a RowMapper used with Spring's JdbcTemplate.
+ * FQL exception for Agorava
  *
- * @param <T> the type of object to map FQL result data to.
- * @author habuma
+ * @author Werner Keil
  */
-public interface FqlResultMapper<T> {
+@SuppressWarnings("serial")
+public class FqlException extends AgoravaException {
 
-    T mapObject(FqlResult objectValues);
+    public FqlException(String message) {
+        super(message);
+    }
+
+    public FqlException(String message, Throwable cause) {
+        super(message, cause);
+    }
 
 }

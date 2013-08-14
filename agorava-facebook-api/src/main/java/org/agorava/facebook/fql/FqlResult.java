@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-
-package org.agorava.facebook.model;
+package org.agorava.facebook.fql;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +26,7 @@ import java.util.Map;
  * Given to an {@link FqlResultMapper}, in a way that is analogous to how a ResultSet is given to a RowMapper in Spring's JdbcTemplate.
  *
  * @author habuma
+ * @author Werner Keil
  */
 public class FqlResult {
 

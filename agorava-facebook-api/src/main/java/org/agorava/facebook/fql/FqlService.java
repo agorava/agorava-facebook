@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-
-package org.agorava.facebook.model;
-
+package org.agorava.facebook.fql;
+// TODO Shall we keep this here or merge the service facade with others in org.agorava.facebook?
 import java.util.List;
 
 /**
- * Interface defining operations for querying Facebook with the Facebook Query Language (FQL).
- * See https://developers.facebook.com/docs/reference/fql/ for details on FQL.
+ * Service for querying Facebook with the Facebook Query Language (FQL).
+ * @see https://developers.facebook.com/docs/reference/fql/ for details on FQL.
  *
  * @author habuma
+ * @author Werner Keil
  */
-public interface FqlOperations {
+public interface FqlService {
 
     /**
      * Performs an FQL query, returning a list of results mapped by an {@link FqlResultMapper}.
