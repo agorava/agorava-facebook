@@ -22,7 +22,7 @@ import java.util.List;
  * Service for querying Facebook with the Facebook Query Language (FQL).
  * @see https://developers.facebook.com/docs/reference/fql/ for details on FQL.
  *
- * @author habuma
+ * @author Craig Walls
  * @author Werner Keil
  */
 public interface FqlService {
