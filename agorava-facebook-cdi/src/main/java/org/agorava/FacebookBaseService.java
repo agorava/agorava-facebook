@@ -19,7 +19,8 @@
 package org.agorava;
 
 import org.agorava.core.api.oauth.OAuthService;
-import org.agorava.core.oauth.AbstractApiService;
+import org.agorava.core.spi.AbstractApiService;
+import org.agorava.facebook.Facebook;
 
 import javax.inject.Inject;
 

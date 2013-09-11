@@ -18,9 +18,9 @@
  */
 package org.agorava.facebook.cdi;
 
-import org.agorava.Facebook;
 import org.agorava.core.api.event.SocialEvent.Status;
 import org.agorava.core.api.event.StatusUpdated;
+import org.agorava.facebook.Facebook;
 import org.agorava.facebook.FeedService;
 
 import javax.decorator.Decorator;

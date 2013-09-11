@@ -17,7 +17,7 @@
 
 package org.agorava.facebook.model;
 
-import org.agorava.core.api.UserProfile;
+import org.agorava.core.spi.UserProfile;
 
 import java.io.Serializable;
 import java.util.Date;
