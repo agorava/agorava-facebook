@@ -19,7 +19,7 @@
 
 package org.agorava.facebook;
 
-import org.agorava.core.api.ServiceRelated;
+import org.agorava.core.api.atinject.TierServiceRelated;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Documented;
@@ -33,7 +33,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Qualifier
-@ServiceRelated
+@TierServiceRelated
 @Target({TYPE, METHOD, PARAMETER, FIELD})
 @Retention(RUNTIME)
 @Documented

@@ -19,7 +19,7 @@
 package org.agorava;
 
 import org.agorava.core.api.oauth.OAuthService;
-import org.agorava.core.spi.AbstractApiService;
+import org.agorava.core.spi.TierService;
 import org.agorava.facebook.Facebook;
 
 import javax.inject.Inject;
@@ -27,7 +27,7 @@ import javax.inject.Inject;
 /**
  * @author Antoine Sabot-Durand
  */
-public class FacebookBaseService extends AbstractApiService {
+public class FacebookBaseService extends TierService {
 
     @Inject
     @Facebook
