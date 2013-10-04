@@ -22,14 +22,14 @@ package org.agorava.facebook;
 import org.agorava.core.api.oauth.OAuthAppSettings;
 import org.agorava.core.api.util.OAuthEncoder;
 import org.agorava.core.api.util.Preconditions;
-import org.agorava.core.spi.TierConfigOauth20;
+import org.agorava.core.spi.ProviderConfigOauth20;
 
 /**
  * @author Antoine Sabot-Durand
  */
 
 @Facebook
-public class FacebookApi extends TierConfigOauth20 {
+public class FacebookApi extends ProviderConfigOauth20 {
 
     private static final String AUTHORIZE_URL = "https://www.facebook.com/dialog/oauth?client_id=%s&redirect_uri=%s";
 
@@ -57,7 +57,7 @@ public class FacebookApi extends TierConfigOauth20 {
     }
 
     @Override
-    public String getTierName() {
+    public String getProviderName() {
         return MEDIA_NAME;
     }
 
