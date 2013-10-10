@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,15 @@
 package org.agorava.facebook.impl;
 
 import org.agorava.FacebookBaseService;
-import org.agorava.core.api.exception.AgoravaException;
+import org.agorava.api.exception.AgoravaException;
 import org.agorava.facebook.FeedService;
 import org.agorava.facebook.GraphApi;
-import org.agorava.facebook.model.*;
+import org.agorava.facebook.model.FacebookLink;
+import org.agorava.facebook.model.LinkPost;
+import org.agorava.facebook.model.NotePost;
+import org.agorava.facebook.model.Post;
 import org.agorava.facebook.model.Post.PostType;
+import org.agorava.facebook.model.StatusPost;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.node.ObjectNode;

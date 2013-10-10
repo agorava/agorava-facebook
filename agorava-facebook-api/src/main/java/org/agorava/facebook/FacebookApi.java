@@ -19,10 +19,10 @@
 package org.agorava.facebook;
 
 
-import org.agorava.core.api.oauth.application.OAuthAppSettings;
-import org.agorava.core.api.util.OAuthEncoder;
-import org.agorava.core.api.util.Preconditions;
-import org.agorava.core.spi.ProviderConfigOauth20;
+import org.agorava.api.oauth.application.OAuthAppSettings;
+import org.agorava.api.util.OAuthEncoder;
+import org.agorava.api.util.Preconditions;
+import org.agorava.spi.ProviderConfigOauth20;
 
 /**
  * @author Antoine Sabot-Durand

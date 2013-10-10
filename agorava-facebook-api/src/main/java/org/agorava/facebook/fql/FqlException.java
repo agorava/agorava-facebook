@@ -16,7 +16,7 @@
 
 package org.agorava.facebook.fql;
 
-import org.agorava.core.api.exception.AgoravaException;
+import org.agorava.api.exception.AgoravaException;
 
 /**
  * FQL exception for Agorava

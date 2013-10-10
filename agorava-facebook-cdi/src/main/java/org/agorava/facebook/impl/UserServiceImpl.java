@@ -20,8 +20,8 @@ package org.agorava.facebook.impl;
 
 import com.google.common.collect.Maps;
 import org.agorava.FacebookBaseService;
-import org.agorava.core.api.event.OAuthComplete;
-import org.agorava.core.api.event.SocialEvent;
+import org.agorava.api.event.OAuthComplete;
+import org.agorava.api.event.SocialEvent;
 import org.agorava.facebook.Facebook;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.UserService;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ package org.agorava.facebook.impl;
 
 import com.google.common.base.Joiner;
 import org.agorava.FacebookBaseService;
-import org.agorava.core.api.exception.AgoravaException;
+import org.agorava.api.exception.AgoravaException;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.model.ImageType;
 import org.codehaus.jackson.JsonNode;
@@ -80,7 +80,8 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
         // ResponseEntity<byte[]> response = getService().getForEntity(uri, byte[].class);
         // if (response.getStatusCode() == HttpStatus.FOUND) {
         // throw new UnsupportedOperationException(
-        // "Attempt to fetch image resulted in a redirect which could not be followed. Add Apache HttpComponents HttpClient to the classpath "
+        // "Attempt to fetch image resulted in a redirect which could not be followed. Add Apache HttpComponents HttpClient
+        // to the classpath "
         // + "to be able to follow redirects.");
         // }
         // return response.getBody();
