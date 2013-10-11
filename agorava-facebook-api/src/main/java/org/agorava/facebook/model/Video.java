@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,7 +49,8 @@ public class Video {
 
     private Date updatedTime;
 
-    private Video(String id, Reference from, String picture, String embedHtml, String icon, String source, Date createdTime, Date updatedTime) {
+    private Video(String id, Reference from, String picture, String embedHtml, String icon, String source, Date createdTime,
+                  Date updatedTime) {
         this.id = id;
         this.from = from;
         this.picture = picture;

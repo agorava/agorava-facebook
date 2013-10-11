@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ import java.util.Map;
 
 /**
  * Represents a single result item from an FQL query.
- * Given to an {@link FqlResultMapper}, in a way that is analogous to how a ResultSet is given to a RowMapper in Spring's JdbcTemplate.
+ * Given to an {@link FqlResultMapper}, in a way that is analogous to how a ResultSet is given to a RowMapper in Spring's
+ * JdbcTemplate.
  *
  * @author habuma
  * @author Werner Keil
@@ -110,7 +111,8 @@ public class FqlResult {
      *
      * @param fieldName the name of the field
      * @return the value of the field as a Date
-     * @throws FqlException if the field's value cannot be expressed as a long value from which a Date object can be constructed.
+     * @throws FqlException if the field's value cannot be expressed as a long value from which a Date object can be
+     * constructed.
      */
     public Date getTime(String fieldName) {
         try {
@@ -136,7 +138,8 @@ public class FqlResult {
      *
      * @param fieldName the name of the field
      * @param mapper    an {@link FqlResultMapper} used to map the object date into a specific type.
-     * @return the value of the field as an object of a type the same as the parameterized type of the given {@link FqlResultMapper}.
+     * @return the value of the field as an object of a type the same as the parameterized type of the given {@link
+     * FqlResultMapper}.
      * @throws FqlException if the value of the field is not a nested object.
      */
     public <T> T getObject(String fieldName, FqlResultMapper<T> mapper) {
@@ -157,7 +160,8 @@ public class FqlResult {
      *
      * @param fieldName the name of the field
      * @param mapper    an {@link FqlResultMapper} used to map the object date into a specific type.
-     * @return the value of the field as list of objects whose type is the same as the parameterized type of the given {@link FqlResultMapper}.
+     * @return the value of the field as list of objects whose type is the same as the parameterized type of the given {@link
+     * FqlResultMapper}.
      * @throws FqlException if the value of the field is not a list.
      */
     public <T> List<T> getList(String fieldName, FqlResultMapper<T> mapper) {

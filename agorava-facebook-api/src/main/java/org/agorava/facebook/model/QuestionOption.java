@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,9 +22,13 @@ import java.util.Date;
 public class QuestionOption {
 
     private final String id;
+
     private final String name;
+
     private final Reference from;
+
     private final int votes;
+
     private final Date createdTime;
 
     public QuestionOption(String id, String name, Reference from, int votes, Date createdTime) {

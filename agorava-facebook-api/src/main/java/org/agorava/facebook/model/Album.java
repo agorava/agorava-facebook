@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,8 @@ public class Album {
 
     private String coverPhotoId;
 
-    private Album(String id, Reference from, String name, Type type, String link, int count, Privacy privacy, Date createdTime) {
+    private Album(String id, Reference from, String name, Type type, String link, int count, Privacy privacy,
+                  Date createdTime) {
         this.id = id;
         this.from = from;
         this.name = name;
