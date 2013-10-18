@@ -20,8 +20,6 @@ package org.agorava.facebook.impl;
 
 import com.google.common.collect.Maps;
 import org.agorava.FacebookBaseService;
-import org.agorava.api.event.OAuthComplete;
-import org.agorava.api.event.SocialEvent;
 import org.agorava.facebook.Facebook;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.UserService;
@@ -30,7 +28,6 @@ import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
 import org.codehaus.jackson.JsonNode;
 
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,16 +37,11 @@ import java.util.Map;
 /**
  * @author Antoine Sabot-Durand
  */
+@Facebook
 public class UserServiceImpl extends FacebookBaseService implements UserService {
 
     @Inject
     private GraphApi graphApi;
-
-    public void initMyProfile(@Observes @Facebook OAuthComplete oauthComplete) {
-
-        if (oauthComplete.getStatus() == SocialEvent.Status.SUCCESS)
-            oauthComplete.getEventData().setUserProfile(getUserProfile());
-    }
 
     @Override
     public FacebookProfile getUserProfile() {
