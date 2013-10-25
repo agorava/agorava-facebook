@@ -52,46 +52,6 @@
 
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>weld-1.x</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-                <property>
-                    <name>arquillian</name>
-                    <value>weld-ee-embedded-1.1</value>
-                </property>
-            </activation>
-
-            <properties>
-                <arquillian>weld-ee-embedded-1.1</arquillian>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.spec</groupId>
-                    <artifactId>jboss-javaee-6.0</artifactId>
-                    <type>pom</type>
-                </dependency>
-
-                <dependency>
-                    <groupId>org.jboss.arquillian.container</groupId>
-                    <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.weld</groupId>
-                    <artifactId>weld-core</artifactId>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-simple</artifactId>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
-
-        </profile>
-
-    </profiles>
 
     <build>
         <plugins>
