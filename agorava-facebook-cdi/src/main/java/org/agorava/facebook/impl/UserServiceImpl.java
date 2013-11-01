@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  *
  */
 package org.agorava.facebook.impl;
 
-import com.google.common.collect.Maps;
 import org.agorava.FacebookBaseService;
 import org.agorava.facebook.Facebook;
 import org.agorava.facebook.GraphApi;
@@ -30,6 +30,7 @@ import org.codehaus.jackson.JsonNode;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -83,7 +84,7 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
 
     @Override
     public List<Reference> search(String query) {
-        Map<String, String> queryMap = Maps.newHashMap();
+        Map<String, String> queryMap = new HashMap();
         queryMap.put("q", query);
         queryMap.put("type", "user");
         return graphApi.fetchConnections("search", null, Reference.class, queryMap);

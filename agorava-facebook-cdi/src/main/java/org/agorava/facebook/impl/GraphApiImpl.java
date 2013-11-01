@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  *
  */
 package org.agorava.facebook.impl;
 
-import com.google.common.base.Joiner;
 import org.agorava.FacebookBaseService;
 import org.agorava.api.exception.AgoravaException;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.model.ImageType;
+import org.agorava.utils.StringUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.type.CollectionType;
@@ -30,10 +31,9 @@ import org.codehaus.jackson.map.type.TypeFactory;
 
 import javax.inject.Inject;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.google.common.collect.Maps.newHashMap;
 
 /**
  * @author Antoine Sabot-Durand
@@ -57,9 +57,9 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
 
     @Override
     public <T> List<T> fetchConnections(String objectId, String connectionType, Class<T> type, String... fields) {
-        Map<String, String> queryParameters = newHashMap();
+        Map<String, String> queryParameters = new HashMap();
         if (fields.length > 0) {
-            String joinedFields = Joiner.on(',').join(fields);
+            String joinedFields = StringUtils.join(fields, ',');
             queryParameters.put("fields", joinedFields);
         }
         return fetchConnections(objectId, connectionType, type, queryParameters);
@@ -104,7 +104,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
 
     @Override
     public void delete(String objectId) {
-        Map<String, String> deleteRequest = newHashMap();
+        Map<String, String> deleteRequest = new HashMap();
         deleteRequest.put("method", "delete");
         String uri = GRAPH_API_URL + objectId;
         getService().post(uri, deleteRequest, String.class);
@@ -112,7 +112,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
 
     @Override
     public void delete(String objectId, String connectionType) {
-        Map<String, String> deleteRequest = newHashMap();
+        Map<String, String> deleteRequest = new HashMap();
         deleteRequest.put("method", "delete");
         String uri = GRAPH_API_URL + objectId + "/" + connectionType;
         getService().post(uri, deleteRequest, String.class);

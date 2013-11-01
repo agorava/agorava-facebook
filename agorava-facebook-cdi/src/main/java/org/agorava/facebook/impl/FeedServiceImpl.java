@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  *
  */
@@ -36,11 +37,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import static com.google.common.collect.Maps.newHashMap;
 
 /**
  * @author Antoine Sabot-Durand
@@ -197,7 +197,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     @Override
     public String postLink(String ownerId, String message, FacebookLink link) {
 
-        Map<String, Object> map = newHashMap();
+        Map<String, Object> map = new HashMap();
         map.put("link", link.getLink());
         map.put("name", link.getName());
         map.put("caption", link.getCaption());
@@ -209,7 +209,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     @Override
     public String post(String ownerId, String message) {
 
-        Map<String, Object> map = newHashMap();
+        Map<String, Object> map = new HashMap();
         map.put("message", message);
         return graphApi.publish(ownerId, "feed", map);
     }
@@ -227,7 +227,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> searchPublicFeed(String query, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("q", query);
         params.put("type", "post");
         params.put("offset", String.valueOf(offset));
@@ -244,7 +244,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> searchHomeFeed(String query, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
@@ -270,7 +270,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> searchUserFeed(String userId, String query, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
@@ -282,7 +282,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     // private helpers
 
     private JsonNode fetchConnectionList(String baseUri, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
         String uri = buildUri(baseUri, params);
