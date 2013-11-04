@@ -17,6 +17,8 @@
 
 package org.agorava.facebook.jackson;
 
+import com.fasterxml.jackson.core.Version;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.agorava.facebook.Facebook;
 import org.agorava.facebook.jackson.PhotoMixin.ImageMixin;
 import org.agorava.facebook.model.Account;
@@ -51,8 +53,6 @@ import org.agorava.facebook.model.Tag;
 import org.agorava.facebook.model.Video;
 import org.agorava.facebook.model.VideoPost;
 import org.agorava.facebook.model.WorkEntry;
-import org.codehaus.jackson.Version;
-import org.codehaus.jackson.map.module.SimpleModule;
 
 /**
  * Jackson module for setting up mixin annotations on Facebook model types. This enables the use of Jackson annotations without

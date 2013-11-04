@@ -19,15 +19,15 @@
  */
 package org.agorava.facebook.impl;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.agorava.FacebookBaseService;
 import org.agorava.api.exception.AgoravaException;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.model.ImageType;
 import org.agorava.utils.StringUtils;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.type.CollectionType;
-import org.codehaus.jackson.map.type.TypeFactory;
 
 import javax.inject.Inject;
 import java.io.IOException;
@@ -122,7 +122,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     private <T> List<T> deserializeDataList(JsonNode jsonNode, final Class<T> elementType) {
         try {
             CollectionType listType = TypeFactory.defaultInstance().constructCollectionType(List.class, elementType);
-            return (List<T>) objectMapper.readValue(jsonNode, listType);
+            return (List<T>) objectMapper.readValue(jsonNode.textValue(), listType);
         } catch (IOException e) {
             throw new AgoravaException("Error deserializing data from Facebook: " + e.getMessage(), e);
         }

@@ -17,18 +17,33 @@
 
 package org.agorava.facebook.jackson;
 
-import org.agorava.facebook.model.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import org.agorava.facebook.model.CheckinPost;
+import org.agorava.facebook.model.Comment;
+import org.agorava.facebook.model.LinkPost;
+import org.agorava.facebook.model.ListAndCount;
+import org.agorava.facebook.model.MusicPost;
+import org.agorava.facebook.model.NotePost;
+import org.agorava.facebook.model.PhotoPost;
+import org.agorava.facebook.model.Post;
 import org.agorava.facebook.model.Post.PostType;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.annotate.*;
-import org.codehaus.jackson.annotate.JsonSubTypes.Type;
-import org.codehaus.jackson.annotate.JsonTypeInfo.As;
-import org.codehaus.jackson.annotate.JsonTypeInfo.Id;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.agorava.facebook.model.Reference;
+import org.agorava.facebook.model.StatusPost;
+import org.agorava.facebook.model.SwfPost;
+import org.agorava.facebook.model.VideoPost;
 
 import java.io.IOException;
 import java.util.Date;

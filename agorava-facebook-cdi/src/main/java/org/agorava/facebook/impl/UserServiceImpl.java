@@ -19,6 +19,7 @@
  */
 package org.agorava.facebook.impl;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import org.agorava.FacebookBaseService;
 import org.agorava.facebook.Facebook;
 import org.agorava.facebook.GraphApi;
@@ -26,7 +27,6 @@ import org.agorava.facebook.UserService;
 import org.agorava.facebook.model.FacebookProfile;
 import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
-import org.codehaus.jackson.JsonNode;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -93,9 +93,9 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
     private List<String> deserializePermissionsNodeToList(JsonNode jsonNode) {
         JsonNode dataNode = jsonNode.get("data");
         List<String> permissions = new ArrayList<String>();
-        for (Iterator<JsonNode> elementIt = dataNode.getElements(); elementIt.hasNext(); ) {
+        for (Iterator<JsonNode> elementIt = dataNode.elements(); elementIt.hasNext(); ) {
             JsonNode permissionsElement = elementIt.next();
-            for (Iterator<String> fieldNamesIt = permissionsElement.getFieldNames(); fieldNamesIt.hasNext(); ) {
+            for (Iterator<String> fieldNamesIt = permissionsElement.fieldNames(); fieldNamesIt.hasNext(); ) {
                 permissions.add(fieldNamesIt.next());
             }
         }

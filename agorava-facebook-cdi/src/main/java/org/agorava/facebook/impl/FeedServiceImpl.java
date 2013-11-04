@@ -19,6 +19,9 @@
  */
 package org.agorava.facebook.impl;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.agorava.FacebookBaseService;
 import org.agorava.api.exception.AgoravaException;
 import org.agorava.facebook.FeedService;
@@ -29,9 +32,6 @@ import org.agorava.facebook.model.NotePost;
 import org.agorava.facebook.model.Post;
 import org.agorava.facebook.model.Post.PostType;
 import org.agorava.facebook.model.StatusPost;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ObjectNode;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -309,7 +309,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
             // be null when trying to deserialize the type property.
             node.put("postType", postType); // used for polymorphic deserialization
             node.put("type", postType); // used to set Post's type property
-            return objectMapper.readValue(node, type);
+            return objectMapper.readValue(node.textValue(), type);
         } catch (IOException shouldntHappen) {
             throw new AgoravaException("Error deserializing " + postType + " post", shouldntHappen);
         }
@@ -318,7 +318,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     private String determinePostType(ObjectNode node) {
         if (node.has("type")) {
             try {
-                String type = node.get("type").getTextValue();
+                String type = node.get("type").textValue();
                 PostType.valueOf(type.toUpperCase());
                 return type;
             } catch (IllegalArgumentException e) {

@@ -17,15 +17,15 @@
 
 package org.agorava.facebook.jackson;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.agorava.facebook.model.ListAndCount;
 import org.agorava.facebook.model.Reference;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.DeserializationContext;
-import org.codehaus.jackson.map.JsonDeserializer;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -38,16 +38,17 @@ class ReferenceListAndCountDeserializer extends JsonDeserializer<ListAndCount<Re
     public ListAndCount<Reference> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException,
             JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.setDeserializationConfig(ctxt.getConfig());
+
         jp.setCodec(mapper);
         if (jp.hasCurrentToken()) {
-            JsonNode node = jp.readValueAsTree();
+            JsonNode node = jp.readValueAs(JsonNode.class);
             JsonNode dataNode = node.get("data");
-            List<Reference> commentsList = dataNode != null ? (List<Reference>) mapper.readValue(dataNode,
-                    new TypeReference<List<Reference>>() {
-                    }) : Collections.<Reference>emptyList();
+            List<Reference> commentsList = dataNode != null ?
+                    (List<Reference>) mapper.reader(new TypeReference<List<Reference>>() {
+                    }).readValue(dataNode) :
+                    Collections.<Reference>emptyList();
             JsonNode countNode = node.get("count");
-            int referenceCount = countNode != null ? countNode.getIntValue() : 0;
+            int referenceCount = countNode != null ? countNode.intValue() : 0;
             return new ListAndCount<Reference>(commentsList, referenceCount);
         }
 
