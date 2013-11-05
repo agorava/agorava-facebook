@@ -31,13 +31,15 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+import static org.agorava.api.atinject.BeanResolver.getInstance;
+
 class ReferenceListAndCountDeserializer extends JsonDeserializer<ListAndCount<Reference>> {
 
     @SuppressWarnings("unchecked")
     @Override
     public ListAndCount<Reference> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException,
             JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = getInstance().resolve(ObjectMapper.class);
 
         jp.setCodec(mapper);
         if (jp.hasCurrentToken()) {

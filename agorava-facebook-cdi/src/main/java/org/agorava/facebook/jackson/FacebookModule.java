@@ -17,7 +17,6 @@
 
 package org.agorava.facebook.jackson;
 
-import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.agorava.facebook.Facebook;
 import org.agorava.facebook.jackson.PhotoMixin.ImageMixin;
@@ -64,7 +63,7 @@ import org.agorava.facebook.model.WorkEntry;
 public class FacebookModule extends SimpleModule {
 
     public FacebookModule() {
-        super("FacebookModule", new Version(1, 0, 0, null));
+        super("FacebookModule");
     }
 
     @Override

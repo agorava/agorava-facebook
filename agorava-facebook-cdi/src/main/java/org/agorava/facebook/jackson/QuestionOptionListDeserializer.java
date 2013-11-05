@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.agorava.api.atinject.BeanResolver;
 import org.agorava.facebook.model.QuestionOption;
 
 import java.io.IOException;
@@ -35,7 +36,7 @@ class QuestionOptionListDeserializer extends JsonDeserializer<List<QuestionOptio
     @Override
     public List<QuestionOption> deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException,
             JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = BeanResolver.getInstance().resolve(ObjectMapper.class);
         jp.setCodec(mapper);
         if (jp.hasCurrentToken()) {
             TreeNode dataNode = jp.readValueAs(JsonNode.class).get("data");

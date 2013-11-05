@@ -304,12 +304,14 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
             if (postType == null) {
                 postType = determinePostType(node);
             }
-            // Must have separate postType field for polymorphic deserialization. If we key off of the "type" field, then it
-            // will
+
+            // Must have separate postType field for polymorphic deserialization. If we key off of the "type" field,
+            // then it will
             // be null when trying to deserialize the type property.
             node.put("postType", postType); // used for polymorphic deserialization
             node.put("type", postType); // used to set Post's type property
-            return objectMapper.readValue(node.textValue(), type);
+            return objectMapper.reader(type).readValue(node.toString()); // TODO: EXTREMELY HACKY--TEMPORARY UNTIL I FIGURE
+            // OUT HOW JACKSON 2 DOES THIS
         } catch (IOException shouldntHappen) {
             throw new AgoravaException("Error deserializing " + postType + " post", shouldntHappen);
         }
