@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
   ~ Copyright 2013 Agorava
   ~
@@ -37,6 +38,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.agorava</groupId>
+                <artifactId>agorava-bom</artifactId>
+                <version>0.7.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.agorava</groupId>
                 <artifactId>agorava-facebook-api</artifactId>
