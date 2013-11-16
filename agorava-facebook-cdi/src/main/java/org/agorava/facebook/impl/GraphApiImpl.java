@@ -25,9 +25,9 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.agorava.FacebookBaseService;
 import org.agorava.api.exception.AgoravaException;
+import org.agorava.api.service.StringUtils;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.model.ImageType;
-import org.agorava.utils.StringUtils;
 
 import javax.inject.Inject;
 import java.io.IOException;
