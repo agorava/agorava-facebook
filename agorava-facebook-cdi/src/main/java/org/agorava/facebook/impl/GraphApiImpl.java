@@ -26,10 +26,12 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.agorava.FacebookBaseService;
 import org.agorava.api.exception.AgoravaException;
 import org.agorava.api.service.StringUtils;
+import org.agorava.facebook.Facebook;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.model.ImageType;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +40,8 @@ import java.util.Map;
 /**
  * @author Antoine Sabot-Durand
  */
+@Facebook
+@Named
 public class GraphApiImpl extends FacebookBaseService implements GraphApi {
 
     @Inject

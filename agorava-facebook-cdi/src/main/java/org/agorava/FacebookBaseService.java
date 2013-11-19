@@ -28,7 +28,7 @@ import javax.inject.Inject;
 /**
  * @author Antoine Sabot-Durand
  */
-public class FacebookBaseService extends ProviderApiService {
+public abstract class FacebookBaseService extends ProviderApiService {
 
     @Inject
     @Facebook

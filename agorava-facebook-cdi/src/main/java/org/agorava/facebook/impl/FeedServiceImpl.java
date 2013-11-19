@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.agorava.FacebookBaseService;
 import org.agorava.api.exception.AgoravaException;
+import org.agorava.facebook.Facebook;
 import org.agorava.facebook.FeedService;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.model.FacebookLink;
@@ -46,9 +47,11 @@ import java.util.Map;
  * @author Antoine Sabot-Durand
  */
 @Named("facebookFeed")
+@Facebook
 public class FeedServiceImpl extends FacebookBaseService implements FeedService {
 
     @Inject
+    @Facebook
     private GraphApi graphApi;
 
     @Inject

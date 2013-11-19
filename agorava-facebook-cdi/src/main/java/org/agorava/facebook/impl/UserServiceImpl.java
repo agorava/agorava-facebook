@@ -29,6 +29,7 @@ import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -39,9 +40,11 @@ import java.util.Map;
  * @author Antoine Sabot-Durand
  */
 @Facebook
+@Named
 public class UserServiceImpl extends FacebookBaseService implements UserService {
 
     @Inject
+    @Facebook
     private GraphApi graphApi;
 
     @Override
