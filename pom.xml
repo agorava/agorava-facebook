@@ -25,7 +25,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.agorava</groupId>
-    <version>0.7.0</version>
+    <version>0.7.1-SNAPSHOT</version>
     <artifactId>agorava-facebook-parent</artifactId>
     <packaging>pom</packaging>
 
