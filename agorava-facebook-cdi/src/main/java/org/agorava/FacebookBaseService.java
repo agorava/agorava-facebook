@@ -13,20 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  *
  */
 package org.agorava;
 
-import org.agorava.core.api.oauth.OAuthService;
-import org.agorava.core.oauth.AbstractApiService;
+import org.agorava.api.oauth.OAuthService;
+import org.agorava.facebook.Facebook;
+import org.agorava.spi.ProviderApiService;
 
 import javax.inject.Inject;
 
 /**
  * @author Antoine Sabot-Durand
  */
-public class FacebookBaseService extends AbstractApiService {
+public abstract class FacebookBaseService extends ProviderApiService {
 
     @Inject
     @Facebook

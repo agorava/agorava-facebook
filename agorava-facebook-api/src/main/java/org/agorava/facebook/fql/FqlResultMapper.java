@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
+package org.agorava.facebook.fql;
 
-package org.agorava.facebook.model;
 
 /**
  * An interface used by FqlTemplate to map FQL results to objects of a specific type, on a per-object basis.
@@ -23,6 +23,7 @@ package org.agorava.facebook.model;
  *
  * @param <T> the type of object to map FQL result data to.
  * @author habuma
+ * @author Werner Keil
  */
 public interface FqlResultMapper<T> {
 

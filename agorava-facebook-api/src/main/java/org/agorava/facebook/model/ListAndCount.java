@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,8 @@ import java.util.List;
 /**
  * Contains a list of comments and a count of the total number of comments for a post or checkin.
  * This type is not intended for direct use and is not exposed by either the Post or Checkin type.
- * Instead, the comments list and count are available through Comment.getComments(), Post.getComments(), and Post.getCommentCount().
+ * Instead, the comments list and count are available through Comment.getComments(), Post.getComments(),
+ * and Post.getCommentCount().
  *
  * @author habuma
  */

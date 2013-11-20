@@ -13,26 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  *
  */
 package org.agorava.facebook.impl;
 
-import com.google.common.collect.Maps;
-import org.agorava.Facebook;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.agorava.FacebookBaseService;
-import org.agorava.core.api.event.OAuthComplete;
-import org.agorava.core.api.event.SocialEvent;
+import org.agorava.facebook.Facebook;
 import org.agorava.facebook.GraphApi;
 import org.agorava.facebook.UserService;
 import org.agorava.facebook.model.FacebookProfile;
 import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
-import org.codehaus.jackson.JsonNode;
 
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -40,16 +39,13 @@ import java.util.Map;
 /**
  * @author Antoine Sabot-Durand
  */
+@Facebook
+@Named
 public class UserServiceImpl extends FacebookBaseService implements UserService {
 
     @Inject
+    @Facebook
     private GraphApi graphApi;
-
-    public void initMyProfile(@Observes @Facebook OAuthComplete oauthComplete) {
-
-        if (oauthComplete.getStatus() == SocialEvent.Status.SUCCESS)
-            oauthComplete.getEventData().setUserProfile(getUserProfile());
-    }
 
     @Override
     public FacebookProfile getUserProfile() {
@@ -91,7 +87,7 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
 
     @Override
     public List<Reference> search(String query) {
-        Map<String, String> queryMap = Maps.newHashMap();
+        Map<String, String> queryMap = new HashMap();
         queryMap.put("q", query);
         queryMap.put("type", "user");
         return graphApi.fetchConnections("search", null, Reference.class, queryMap);
@@ -100,9 +96,9 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
     private List<String> deserializePermissionsNodeToList(JsonNode jsonNode) {
         JsonNode dataNode = jsonNode.get("data");
         List<String> permissions = new ArrayList<String>();
-        for (Iterator<JsonNode> elementIt = dataNode.getElements(); elementIt.hasNext(); ) {
+        for (Iterator<JsonNode> elementIt = dataNode.elements(); elementIt.hasNext(); ) {
             JsonNode permissionsElement = elementIt.next();
-            for (Iterator<String> fieldNamesIt = permissionsElement.getFieldNames(); fieldNamesIt.hasNext(); ) {
+            for (Iterator<String> fieldNamesIt = permissionsElement.fieldNames(); fieldNamesIt.hasNext(); ) {
                 permissions.add(fieldNamesIt.next());
             }
         }

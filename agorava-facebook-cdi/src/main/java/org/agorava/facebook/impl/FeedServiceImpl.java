@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,38 +13,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  *
  */
 package org.agorava.facebook.impl;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.agorava.FacebookBaseService;
-import org.agorava.core.api.exception.AgoravaException;
+import org.agorava.api.exception.AgoravaException;
+import org.agorava.facebook.Facebook;
 import org.agorava.facebook.FeedService;
 import org.agorava.facebook.GraphApi;
-import org.agorava.facebook.model.*;
+import org.agorava.facebook.model.FacebookLink;
+import org.agorava.facebook.model.LinkPost;
+import org.agorava.facebook.model.NotePost;
+import org.agorava.facebook.model.Post;
 import org.agorava.facebook.model.Post.PostType;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.node.ObjectNode;
+import org.agorava.facebook.model.StatusPost;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import static com.google.common.collect.Maps.newHashMap;
 
 /**
  * @author Antoine Sabot-Durand
  */
 @Named("facebookFeed")
+@Facebook
 public class FeedServiceImpl extends FacebookBaseService implements FeedService {
 
     @Inject
+    @Facebook
     private GraphApi graphApi;
 
     @Inject
@@ -193,7 +200,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     @Override
     public String postLink(String ownerId, String message, FacebookLink link) {
 
-        Map<String, Object> map = newHashMap();
+        Map<String, Object> map = new HashMap();
         map.put("link", link.getLink());
         map.put("name", link.getName());
         map.put("caption", link.getCaption());
@@ -205,7 +212,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     @Override
     public String post(String ownerId, String message) {
 
-        Map<String, Object> map = newHashMap();
+        Map<String, Object> map = new HashMap();
         map.put("message", message);
         return graphApi.publish(ownerId, "feed", map);
     }
@@ -223,7 +230,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> searchPublicFeed(String query, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("q", query);
         params.put("type", "post");
         params.put("offset", String.valueOf(offset));
@@ -240,7 +247,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> searchHomeFeed(String query, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
@@ -266,7 +273,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> searchUserFeed(String userId, String query, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
@@ -278,7 +285,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     // private helpers
 
     private JsonNode fetchConnectionList(String baseUri, int offset, int limit) {
-        Map<String, Object> params = newHashMap();
+        Map<String, Object> params = new HashMap();
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
         String uri = buildUri(baseUri, params);
@@ -300,12 +307,14 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
             if (postType == null) {
                 postType = determinePostType(node);
             }
-            // Must have separate postType field for polymorphic deserialization. If we key off of the "type" field, then it
-            // will
+
+            // Must have separate postType field for polymorphic deserialization. If we key off of the "type" field,
+            // then it will
             // be null when trying to deserialize the type property.
             node.put("postType", postType); // used for polymorphic deserialization
             node.put("type", postType); // used to set Post's type property
-            return objectMapper.readValue(node, type);
+            return objectMapper.reader(type).readValue(node.toString()); // TODO: EXTREMELY HACKY--TEMPORARY UNTIL I FIGURE
+            // OUT HOW JACKSON 2 DOES THIS
         } catch (IOException shouldntHappen) {
             throw new AgoravaException("Error deserializing " + postType + " post", shouldntHappen);
         }
@@ -314,7 +323,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
     private String determinePostType(ObjectNode node) {
         if (node.has("type")) {
             try {
-                String type = node.get("type").getTextValue();
+                String type = node.get("type").textValue();
                 PostType.valueOf(type.toUpperCase());
                 return type;
             } catch (IllegalArgumentException e) {

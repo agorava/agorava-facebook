@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,24 +14,10 @@
  * limitations under the License.
  */
 
-
-package org.agorava.facebook.model;
-
 /**
- * Exception indicating a problem with performing an FQL query.
+ * This API supports querying Facebook with the Facebook Query Language (FQL).<br/>
+ * @see https://developers.facebook.com/docs/reference/fql/ for details on FQL.
  *
- * @author habuma
+ * @author Werner Keil
  */
-@SuppressWarnings("serial")
-// TODO could we extend AgoravaException here?
-public class FqlException extends RuntimeException {
-
-    public FqlException(String message) {
-        super(message);
-    }
-
-    public FqlException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-}
+package org.agorava.facebook.fql;

@@ -13,31 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package org.agorava.facebook.fql;
+
+import org.agorava.api.exception.AgoravaException;
+
 /**
+ * FQL exception for Agorava
  *
+ * @author Werner Keil
  */
+@SuppressWarnings("serial")
+public class FqlException extends AgoravaException {
 
-package org.agorava;
+    public FqlException(String message) {
+        super(message);
+    }
 
-import org.agorava.core.api.ServiceRelated;
-
-import javax.inject.Qualifier;
-import java.lang.annotation.Documented;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.*;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-@Qualifier
-@ServiceRelated
-@Target({TYPE, METHOD, PARAMETER, FIELD})
-@Retention(RUNTIME)
-@Documented
-/**
- * @author antoine
- *
- */
-public @interface Facebook {
+    public FqlException(String message, Exception cause) {
+        super(message, cause);
+    }
 
 }

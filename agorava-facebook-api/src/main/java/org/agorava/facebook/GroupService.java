@@ -17,7 +17,12 @@
 
 package org.agorava.facebook;
 
-import org.agorava.facebook.model.*;
+import org.agorava.facebook.model.FacebookProfile;
+import org.agorava.facebook.model.Group;
+import org.agorava.facebook.model.GroupMemberReference;
+import org.agorava.facebook.model.GroupMembership;
+import org.agorava.facebook.model.ImageType;
+import org.agorava.facebook.model.Reference;
 
 import java.util.List;
 
@@ -80,10 +85,9 @@ public interface GroupService {
      * Retrieves a list of group memberships for the authenticated user. Requires "user_groups" permission.
      *
      * @return a list of {@link GroupMembership}s, one for each group the user is a member of.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
-     * @throws InsufficientPermissionException
-     *                                       if the user has not granted "user_groups" permission.
+     * @throws ApiException                    if there is an error while communicating with Facebook.
+     * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
+     * @throws InsufficientPermissionException if the user has not granted "user_groups" permission.
      */
     List<GroupMembership> getMemberships();
 
@@ -92,10 +96,9 @@ public interface GroupService {
      *
      * @param userId the user ID to retrieve memberships for.
      * @return a list of {@link GroupMembership}s, one for each group the user is a member of.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
-     * @throws InsufficientPermissionException
-     *                                       if the user has not granted "user_groups" or "friends_groups" permission.
+     * @throws ApiException                    if there is an error while communicating with Facebook.
+     * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
+     * @throws InsufficientPermissionException if the user has not granted "user_groups" or "friends_groups" permission.
      */
     List<GroupMembership> getMemberships(String userId);
 

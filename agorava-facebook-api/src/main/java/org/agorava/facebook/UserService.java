@@ -20,10 +20,11 @@ package org.agorava.facebook;
 import org.agorava.facebook.model.FacebookProfile;
 import org.agorava.facebook.model.ImageType;
 import org.agorava.facebook.model.Reference;
+import org.agorava.spi.UserProfileService;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserProfileService {
 
     /**
      * Retrieves the profile for the authenticated user.

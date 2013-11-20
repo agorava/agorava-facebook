@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Agorava
+ * Copyright 2013 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ package org.agorava.facebook.model;
  * Model class representing a Facebook page.
  * A Facebook page could represent any number of things, including businesses, government agencies, people, organizations, etc.
  * A page may even represent a place that a user may check into using Facebook Places, if the page has location data.
- * The data available for a page will vary depending on the category it belongs to and what data the page administrator has entered.
+ * The data available for a page will vary depending on the category it belongs to and what data the page administrator has
+ * entered.
  *
  * @author Craig Walls
  */

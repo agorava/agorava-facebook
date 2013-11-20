@@ -17,12 +17,12 @@
 
 package org.agorava.facebook.jackson;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.agorava.facebook.model.EducationEntry;
 import org.agorava.facebook.model.Reference;
 import org.agorava.facebook.model.WorkEntry;
-import org.codehaus.jackson.annotate.JsonCreator;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.Date;
 import java.util.List;
