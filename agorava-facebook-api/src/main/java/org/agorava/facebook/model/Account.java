@@ -17,9 +17,22 @@
 
 package org.agorava.facebook.model;
 
-public class Account {
+import org.agorava.api.function.Nameable;
+import org.agorava.api.storage.Identifiable;
 
-    private final String id;
+/**
+ * Model class representing a Facebook user account.
+ *
+ * @author Werner Keil
+ */
+public class Account implements Identifiable, Nameable {
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -9210600428567597114L;
+
+	private final String id;
 
     private final String name;
 

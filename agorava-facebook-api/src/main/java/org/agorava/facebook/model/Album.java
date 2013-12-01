@@ -19,15 +19,24 @@ package org.agorava.facebook.model;
 
 import java.util.Date;
 
+import org.agorava.api.function.Nameable;
+import org.agorava.api.storage.Identifiable;
+
 
 /**
  * Model class representing a Facebook photo album.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Album {
+public class Album implements Identifiable, Nameable {
 
-    private String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8674595786151983106L;
+
+	private String id;
 
     private Reference from;
 

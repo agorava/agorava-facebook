@@ -35,5 +35,5 @@ public interface FqlService {
      * @return a list of objects of type specified by the given {@link FqlResultMapper}
      */
     <T> List<T> query(String fql, FqlResultMapper<T> mapper);
-
+ // TODO for Java 8 consider this a @FunctionalInterface (like BiFunction)
 }
