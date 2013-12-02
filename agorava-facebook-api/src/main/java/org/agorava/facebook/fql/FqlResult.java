@@ -16,6 +16,7 @@
 
 package org.agorava.facebook.fql;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +34,12 @@ public class FqlResult {
 
     private final Map<String, Object> resultMap;
 
+    private static final String MSG_NUMBER = "Field '{0}' is not a number.";
+    
+    private static final String MSG_OTH = "Field '{0}' is not a {1}.";
+    
+    private static final String MSG_OTH2 = "Field '{0}' is not an {1}.";
+    
     /**
      * Constructs an FqlResult instance from a map.
      */
@@ -61,7 +68,7 @@ public class FqlResult {
         try {
             return resultMap.containsKey(fieldName) ? Integer.valueOf(String.valueOf(resultMap.get(fieldName))) : null;
         } catch (NumberFormatException e) {
-            throw new FqlException("Field '" + fieldName + "' is not a number.", e);
+            throw new FqlException(MessageFormat.format(MSG_NUMBER, fieldName), e);
         }
     }
 
@@ -76,7 +83,7 @@ public class FqlResult {
         try {
             return resultMap.containsKey(fieldName) ? Long.valueOf(String.valueOf(resultMap.get(fieldName))) : null;
         } catch (NumberFormatException e) {
-            throw new FqlException("Field '" + fieldName + "' is not a number.", e);
+            throw new FqlException(MessageFormat.format(MSG_NUMBER, fieldName), e);
         }
     }
 
@@ -91,7 +98,7 @@ public class FqlResult {
         try {
             return resultMap.containsKey(fieldName) ? Float.valueOf(String.valueOf(resultMap.get(fieldName))) : null;
         } catch (NumberFormatException e) {
-            throw new FqlException("Field '" + fieldName + "' is not a number.", e);
+            throw new FqlException(MessageFormat.format(MSG_NUMBER, fieldName), e);
         }
     }
 
@@ -119,7 +126,7 @@ public class FqlResult {
             long timeInMilliseconds = Long.valueOf(String.valueOf(resultMap.get(fieldName))) * 1000;
             return resultMap.containsKey(fieldName) ? new Date(timeInMilliseconds) : null;
         } catch (NumberFormatException e) {
-            throw new FqlException("Field '" + fieldName + "' is not a time.", e);
+            throw new FqlException(MessageFormat.format(MSG_OTH, fieldName, "time"), e);
         }
     }
 
@@ -151,7 +158,7 @@ public class FqlResult {
             Map<String, Object> value = (Map<String, Object>) resultMap.get(fieldName);
             return mapper.mapObject(new FqlResult(value));
         } catch (ClassCastException e) {
-            throw new FqlException("Field '" + fieldName + "' is not an object.", e);
+            throw new FqlException(MessageFormat.format(MSG_OTH2, fieldName, "object"), e);
         }
     }
 
@@ -177,7 +184,7 @@ public class FqlResult {
             }
             return response;
         } catch (ClassCastException e) {
-            throw new FqlException("Field '" + fieldName + "' is not a list.", e);
+            throw new FqlException(MessageFormat.format(MSG_OTH, fieldName, "list"), e);
         }
     }
 

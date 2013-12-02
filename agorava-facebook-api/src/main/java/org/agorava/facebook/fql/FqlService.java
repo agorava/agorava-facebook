@@ -15,7 +15,7 @@
  */
 
 package org.agorava.facebook.fql;
-// TODO Shall we keep this here or merge the service facade with others in org.agorava.facebook?
+
 import java.util.List;
 
 /**

@@ -20,14 +20,22 @@ package org.agorava.facebook.model;
 import java.util.Date;
 import java.util.List;
 
+import org.agorava.api.function.Identifiable;
+
 
 /**
  * Model class representing a comment.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Comment {
-    private final String id;
+public class Comment implements Identifiable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4328142297172795693L;
+
+	private final String id;
 
     private final String message;
 

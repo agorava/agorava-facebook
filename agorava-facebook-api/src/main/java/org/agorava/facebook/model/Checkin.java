@@ -20,22 +20,30 @@ package org.agorava.facebook.model;
 import java.util.Date;
 import java.util.List;
 
+import org.agorava.api.function.Identifiable;
+
 
 /**
  * Model class representing a user checkin on Facebook Places.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Checkin {
-    private String id;
+public class Checkin implements Identifiable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -222873117836236212L;
 
-    private Page place;
+	private final String id;
 
-    private Reference from;
+    private final Page place;
 
-    private Reference application;
+    private final Reference from;
 
-    private Date createdTime;
+    private final Reference application;
+
+    private final Date createdTime;
 
     private String message;
 
