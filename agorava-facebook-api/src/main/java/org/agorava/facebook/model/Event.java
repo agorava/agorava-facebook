@@ -19,15 +19,24 @@ package org.agorava.facebook.model;
 
 import java.util.Date;
 
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
+
 
 /**
  * Model class representing an event.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Event {
+public class Event implements Identifiable, Nameable {
 
-    private final String id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 907894207694942907L;
+
+	private final String id;
 
     private final String name;
 
