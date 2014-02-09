@@ -20,10 +20,11 @@
     <parent>
         <artifactId>agorava-parent</artifactId>
         <groupId>org.agorava</groupId>
-        <version>0.7.1-SNAPSHOT</version>
+        <version>0.7.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>org.agorava</groupId>
     <artifactId>agorava-facebook-parent</artifactId>
     <packaging>pom</packaging>
 
@@ -38,7 +39,7 @@
             <dependency>
                 <groupId>org.agorava</groupId>
                 <artifactId>agorava-bom</artifactId>
-                <version>0.7.1-SNAPSHOT</version>
+                <version>0.7.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
