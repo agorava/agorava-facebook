@@ -17,15 +17,15 @@
 
 package org.agorava.facebook.model;
 
-import org.agorava.api.function.Identifiable;
-import org.agorava.api.function.Nameable;
+import java.io.Serializable;
+
 
 /**
  * Model class representing a Facebook user account.
  *
  * @author Werner Keil
  */
-public class Account implements Identifiable, Nameable {
+public class Account implements Serializable {
 
     /**
 	 * 

@@ -17,10 +17,8 @@
 
 package org.agorava.facebook.model;
 
+import java.io.Serializable;
 import java.util.Date;
-
-import org.agorava.api.function.Identifiable;
-import org.agorava.api.function.Nameable;
 
 
 /**
@@ -29,7 +27,7 @@ import org.agorava.api.function.Nameable;
  * @author Craig Walls
  * @author Werner Keil
  */
-public class Event implements Identifiable, Nameable {
+public class Event implements Serializable {
 
     /**
 	 * 

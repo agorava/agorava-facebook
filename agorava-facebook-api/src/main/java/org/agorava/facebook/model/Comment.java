@@ -17,11 +17,9 @@
 
 package org.agorava.facebook.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
-import org.agorava.api.function.Identifiable;
-
 
 /**
  * Model class representing a comment.
@@ -29,7 +27,7 @@ import org.agorava.api.function.Identifiable;
  * @author Craig Walls
  * @author Werner Keil
  */
-public class Comment implements Identifiable {
+public class Comment implements Serializable {
     /**
 	 * 
 	 */
