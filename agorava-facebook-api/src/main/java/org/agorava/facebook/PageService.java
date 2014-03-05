@@ -45,10 +45,10 @@ public interface PageService {
      *
      * @param pageId the page ID
      * @return true if the authenticated user is an admin of the specified page.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_pages" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     boolean isPageAdmin(String pageId);
 
@@ -66,11 +66,11 @@ public interface PageService {
      * @param pageId  the page ID
      * @param message the message to post
      * @return the ID of the new feed entry
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException   if the user is not a page administrator.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String post(String pageId, String message);
 
@@ -83,11 +83,11 @@ public interface PageService {
      * @param message a message to send with the link.
      * @param link    the link details
      * @return the ID of the new feed entry.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException   if the user is not a page administrator.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String post(String pageId, String message, FacebookLink link);
 
@@ -100,10 +100,10 @@ public interface PageService {
      * @param photo A {@link Resource} for the photo data. The given Resource must implement the getFilename() method (such as
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the photo.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException if the user is not a page administrator.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postPhoto(String pageId, String albumId, Resource photo);
 
@@ -117,10 +117,10 @@ public interface PageService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @param caption A caption describing the photo.
      * @return the ID of the photo.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException if the user is not a page administrator.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postPhoto(String pageId, String albumId, Resource photo, String caption);
 

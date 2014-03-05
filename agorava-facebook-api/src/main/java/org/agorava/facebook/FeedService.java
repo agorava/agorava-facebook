@@ -40,7 +40,7 @@ public interface FeedService {
      *
      * @return a list of {@link Post}s for the authenticated user.
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> getFeed();
 
@@ -52,7 +52,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of {@link Post}s for the authenticated user.
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> getFeed(int offset, int limit);
 
@@ -64,7 +64,7 @@ public interface FeedService {
      * @param ownerId the Facebook ID or alias for the owner (user, group, event, page, etc) of the feed.
      * @return a list of {@link Post}s for the specified user.
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> getFeed(String ownerId);
 
@@ -78,7 +78,7 @@ public interface FeedService {
      * @param limit   the maximum number of posts to return.
      * @return a list of {@link Post}s for the specified user.
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> getFeed(String ownerId, int offset, int limit);
 
@@ -122,7 +122,7 @@ public interface FeedService {
      *
      * @return a list of status {@link Post}s.
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<StatusPost> getStatuses();
 
@@ -133,7 +133,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of status {@link Post}s.
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<StatusPost> getStatuses(int offset, int limit);
 
@@ -416,7 +416,7 @@ public interface FeedService {
      * @param query the search query (e.g., "Dr Seuss")
      * @return a list of {@link Post}s that match the search query
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> searchHomeFeed(String query);
 
@@ -428,7 +428,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of {@link Post}s that match the search query
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> searchHomeFeed(String query, int offset, int limit);
 
@@ -439,7 +439,7 @@ public interface FeedService {
      * @param query the search query (e.g., "football")
      * @return a list of {@link Post}s that match the search query
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> searchUserFeed(String query);
 
@@ -451,7 +451,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of {@link Post}s that match the search query
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> searchUserFeed(String query, int offset, int limit);
 
@@ -463,7 +463,7 @@ public interface FeedService {
      * @param query  the search query (e.g., "football")
      * @return a list of {@link Post}s that match the search query
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> searchUserFeed(String userId, String query);
 
@@ -476,7 +476,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of {@link Post}s that match the search query
      * @throws AgoravaException              if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Post> searchUserFeed(String userId, String query, int offset, int limit);
 

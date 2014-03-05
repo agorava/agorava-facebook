@@ -67,7 +67,7 @@ public interface CommentService {
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String addComment(String objectId, String message);
 
@@ -78,7 +78,7 @@ public interface CommentService {
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void deleteComment(String commentId);
 

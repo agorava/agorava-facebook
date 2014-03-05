@@ -34,8 +34,8 @@ public interface LikeService {
      *
      * @param objectId the object ID (an Album, Checkin, Comment, Note, Photo, Post, or Video).
      * @return a list of {@link Reference} objects for the users who have liked the object.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getLikes(String objectId);
 
@@ -44,10 +44,10 @@ public interface LikeService {
      * if permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getPagesLiked();
 
@@ -57,10 +57,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" or "friends_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getPagesLiked(String userId);
 
@@ -70,11 +70,11 @@ public interface LikeService {
      * permission to access the object being liked.
      *
      * @param objectId the object ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission or if the user does not
      *                                       have permission to access the object.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void like(String objectId);
 
@@ -84,11 +84,11 @@ public interface LikeService {
      * permission and permission to access the object being liked.
      *
      * @param objectId the object ID
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission or if the user does not
      *                                       have permission to access the object.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void unlike(String objectId);
 
@@ -97,10 +97,10 @@ public interface LikeService {
      * permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getBooks();
 
@@ -110,10 +110,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getBooks(String userId);
 
@@ -122,10 +122,10 @@ public interface LikeService {
      * permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getMovies();
 
@@ -135,10 +135,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getMovies(String userId);
 
@@ -147,10 +147,10 @@ public interface LikeService {
      * permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getMusic();
 
@@ -160,10 +160,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getMusic(String userId);
 
@@ -172,10 +172,10 @@ public interface LikeService {
      * empty list if permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getTelevision();
 
@@ -186,10 +186,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" or "friends_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getTelevision(String userId);
 
@@ -198,10 +198,10 @@ public interface LikeService {
      * list if permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_activities" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getActivities();
 
@@ -211,10 +211,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_activities" or "friends_activities" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getActivities(String userId);
 
@@ -223,10 +223,10 @@ public interface LikeService {
      * list if permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_interests" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getInterests();
 
@@ -236,10 +236,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_interests" or "friends_interests" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getInterests(String userId);
 
@@ -248,10 +248,10 @@ public interface LikeService {
      * permission isn't granted.
      *
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getGames();
 
@@ -261,10 +261,10 @@ public interface LikeService {
      *
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_likes" or "friends_likes" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Page> getGames(String userId);
 

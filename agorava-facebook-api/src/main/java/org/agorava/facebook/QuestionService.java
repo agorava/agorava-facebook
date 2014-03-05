@@ -30,10 +30,10 @@ public interface QuestionService {
      *
      * @param questionText the question text
      * @return the ID of the newly created question
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String askQuestion(String questionText);
 
@@ -44,10 +44,10 @@ public interface QuestionService {
      * @param questionId the question to add the option to
      * @param optionText the text of the option
      * @return the ID of the newly created option
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String addOption(String questionId, String optionText);
 
@@ -58,10 +58,10 @@ public interface QuestionService {
      *
      * @param questionId the ID of the question
      * @return the {@link Question}
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     Question getQuestion(String questionId);
 
@@ -70,10 +70,10 @@ public interface QuestionService {
      * Requires "user_questions" permission to retrieve questions from the authenticated user.
      *
      * @return a list of {@link Question}s
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Question> getQuestions();
 
@@ -83,10 +83,10 @@ public interface QuestionService {
      * from one of the authenticated user's friends.
      *
      * @return a list of {@link Question}s
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Question> getQuestions(String userId);
 
@@ -95,10 +95,10 @@ public interface QuestionService {
      * Requires "publish_stream" permission.
      *
      * @param questionId the ID of the question to delete
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void deleteQuestion(String questionId);
 
@@ -109,10 +109,10 @@ public interface QuestionService {
      *
      * @param optionId the ID of the option
      * @return the {@link QuestionOption}
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     QuestionOption getOption(String optionId);
 
@@ -123,10 +123,10 @@ public interface QuestionService {
      *
      * @param questionId the ID of the question to retrieve options for
      * @return a list of {@link QuestionOption}s
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<QuestionOption> getOptions(String questionId);
 
@@ -135,10 +135,10 @@ public interface QuestionService {
      * Requires "publish_stream" permission.
      *
      * @param optionId the ID of the option to delete
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void deleteOption(String optionId);
 

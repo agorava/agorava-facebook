@@ -34,10 +34,10 @@ public interface FriendService {
      * Retrieves a list of custom friend lists belonging to the authenticated user. Requires "read_friendlists" permission.
      *
      * @return a list {@link Reference}s, each representing a friends list for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "read_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getFriendLists();
 
@@ -46,10 +46,10 @@ public interface FriendService {
      *
      * @param userId the user's ID
      * @return a list {@link Reference}s, each representing a friends list for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "read_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getFriendLists(String userId);
 
@@ -58,8 +58,8 @@ public interface FriendService {
      *
      * @param friendListId the friend list ID.
      * @return a {@link Reference} to the requested friend list.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     Reference getFriendList(String friendListId);
 
@@ -68,8 +68,8 @@ public interface FriendService {
      *
      * @param friendListId the friend list ID.
      * @return a list of {@link Reference}, each representing a member of the friend list.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getFriendListMembers(String friendListId);
 
@@ -78,10 +78,10 @@ public interface FriendService {
      *
      * @param name the name of the friend list.
      * @return the ID of the newly created friend list.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String createFriendList(String name);
 
@@ -91,10 +91,10 @@ public interface FriendService {
      * @param userId the user ID to create the friend list for.
      * @param name   the name of the friend list.
      * @return the ID of the newly created friend list.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     String createFriendList(String userId, String name);
 
@@ -102,10 +102,10 @@ public interface FriendService {
      * Deletes a friend list. Requires "manage_friendlists" permission.
      *
      * @param friendListId the ID of the friend list to remove.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void deleteFriendList(String friendListId);
 
@@ -114,10 +114,10 @@ public interface FriendService {
      *
      * @param friendListId the friend list ID
      * @param friendId     The ID of the user to add to the list. The user must be a friend of the list's owner.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void addToFriendList(String friendListId, String friendId);
 
@@ -126,10 +126,10 @@ public interface FriendService {
      *
      * @param friendListId the friend list ID
      * @param friendId     The ID of the user to add to the list.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "manage_friendlists" permission.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     void removeFromFriendList(String friendListId, String friendId);
 
@@ -137,8 +137,8 @@ public interface FriendService {
      * Retrieves a list of user references for the authenticated user's friends.
      *
      * @return a list {@link Reference}s, each representing a friend of the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getFriends();
 
@@ -146,8 +146,8 @@ public interface FriendService {
      * Retrieves a list of the authenticating user's friends' IDs.
      *
      * @return a list of Strings, where each entry is the ID of one of the user's friends.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<String> getFriendIds();
 
@@ -156,8 +156,8 @@ public interface FriendService {
      * specify the offset and limit. The list of profiles is ordered by each user's Facebook ID.
      *
      * @return a list {@link FacebookProfile}s, each representing a friend of the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<FacebookProfile> getFriendProfiles();
 
@@ -167,8 +167,8 @@ public interface FriendService {
      * @param offset the offset into the friends list to start retrieving profiles.
      * @param limit  the maximum number of profiles to return.
      * @return a list {@link FacebookProfile}s, each representing a friend of the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<FacebookProfile> getFriendProfiles(int offset, int limit);
 
@@ -178,8 +178,8 @@ public interface FriendService {
      *
      * @param userId the user's ID
      * @return a list {@link Reference}s, each representing a friend of the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getFriends(String userId);
 
@@ -188,8 +188,8 @@ public interface FriendService {
      *
      * @param userId the user's ID
      * @return a list of Strings, where each entry is the ID of one of the user's friends.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<String> getFriendIds(String userId);
 
@@ -199,8 +199,8 @@ public interface FriendService {
      *
      * @param userId the user's ID
      * @return a list {@link FacebookProfile}s, each representing a friend of the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<FacebookProfile> getFriendProfiles(String userId);
 
@@ -211,8 +211,8 @@ public interface FriendService {
      * @param offset the offset into the friends list to start retrieving profiles.
      * @param limit  the maximum number of profiles to return.
      * @return a list {@link FacebookProfile}s, each representing a friend of the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<FacebookProfile> getFriendProfiles(String userId, int offset, int limit);
 
@@ -220,8 +220,8 @@ public interface FriendService {
      * Retrieves a list of FamilyMember references for the authenticated user.
      *
      * @return a list of {@link FamilyMember}s, each representing a Facebook user that the user is related to.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<FamilyMember> getFamily();
 
@@ -230,8 +230,8 @@ public interface FriendService {
      *
      * @param userId the ID of the user to retrieve family members for.
      * @return a list of {@link FamilyMember}s, each representing a Facebook user that the user is related to.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<FamilyMember> getFamily(String userId);
 
@@ -240,8 +240,8 @@ public interface FriendService {
      *
      * @param userId the ID of the user to check for common friendships with.
      * @return a list of {@link Reference}s, each representing a friend that the two users have in common.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getMutualFriends(String userId);
 
@@ -250,8 +250,8 @@ public interface FriendService {
      * "user_subscriptions" permission.
      *
      * @return a list of {@link Reference}s, each representing a Facebook user that the user is subscribed to.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getSubscribedTo();
 
@@ -262,8 +262,8 @@ public interface FriendService {
      *
      * @param userId the ID of the user to fetch subscriptions for.
      * @return a list of {@link Reference}s, each representing a Facebook user that the user is subscribed to.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getSubscribedTo(String userId);
 
@@ -272,8 +272,8 @@ public interface FriendService {
      * "user_subscriptions" permission.
      *
      * @return a list of {@link Reference}s, each representing a Facebook user that the user is subscribed to.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getSubscribers();
 
@@ -284,8 +284,8 @@ public interface FriendService {
      *
      * @param userId the ID of the user to fetch subscriptions for.
      * @return a list of {@link Reference}s, each representing a Facebook user that the user is subscribed to.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
-     * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
+     * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     List<Reference> getSubscribers(String userId);
 
