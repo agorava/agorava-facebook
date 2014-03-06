@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import java.util.List;
  * Defines operations for interacting with a user's friends and friend lists.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
 public interface FriendService {
 

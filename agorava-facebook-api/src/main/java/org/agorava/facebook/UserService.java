@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,11 @@ import org.agorava.spi.UserProfileService;
 
 import java.util.List;
 
+/**
+ * Operations on User API
+ *
+ * @author Werner Keil
+ */
 public interface UserService extends UserProfileService {
 
     /**
