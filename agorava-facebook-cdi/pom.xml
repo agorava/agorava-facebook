@@ -19,7 +19,7 @@
     <parent>
         <artifactId>agorava-facebook-parent</artifactId>
         <groupId>org.agorava</groupId>
-        <version>0.7.1-SNAPSHOT</version>
+        <version>0.7.1-A67-SNAPSHOT</version>
     </parent>
     <artifactId>agorava-facebook-cdi</artifactId>
 
@@ -32,6 +32,7 @@
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-facebook-api</artifactId>
+            <version>0.7.1-A67-SNAPSHOT</version>
         </dependency>
 
         <dependency>

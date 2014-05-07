@@ -18,13 +18,14 @@
     <parent>
         <artifactId>agorava-facebook-parent</artifactId>
         <groupId>org.agorava</groupId>
-        <version>0.7.1-SNAPSHOT</version>
+        <version>0.7.1-A67-SNAPSHOT</version>
     </parent>
     <artifactId>agorava-facebook-api</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.agorava</groupId>
             <artifactId>agorava-core-api</artifactId>
+            <version>0.7.1-A67-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>
