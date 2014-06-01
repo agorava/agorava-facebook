@@ -35,7 +35,7 @@ public interface PlacesService {
      * Requires "user_checkins" or "friends_checkins" permission.
      *
      * @return a list {@link Checkin}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -49,7 +49,7 @@ public interface PlacesService {
      * @param offset the offset into the list of checkins
      * @param limit  the maximum number of checkins to return
      * @return a list {@link Checkin}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -64,7 +64,7 @@ public interface PlacesService {
      *
      * @param objectId either a Facebook user ID or page ID
      * @return a list {@link Checkin}s, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -81,7 +81,7 @@ public interface PlacesService {
      * @param offset   the offset into the list of checkins
      * @param limit    the maximum number of checkins to return
      * @return a list {@link Checkin}s, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -93,7 +93,7 @@ public interface PlacesService {
      *
      * @param checkinId the checkin ID
      * @return a {@link Checkin}
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
     Checkin getCheckin(String checkinId);
@@ -106,7 +106,7 @@ public interface PlacesService {
      * @param latitude  the latitude of the place.
      * @param longitude the longitude of the place.
      * @return the ID of the checkin.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_checkins" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -123,7 +123,7 @@ public interface PlacesService {
      * @param message   a message to post along with the checkin.
      * @param tags      a varargs list of user IDs to tag on the checkin.
      * @return the ID of the checkin.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_checkins" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -138,7 +138,7 @@ public interface PlacesService {
      * @param longitude the longitude of the point to search near
      * @param distance  the radius to search within (in feet)
      * @return a list of {@link Page}s matching the search
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
     List<Page> search(String query, double latitude, double longitude, long distance);

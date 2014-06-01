@@ -38,7 +38,7 @@ public interface GroupService {
      *
      * @param groupId the ID of the group
      * @return a {@link Group} object
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     Group getGroup(String groupId);
 
@@ -47,7 +47,7 @@ public interface GroupService {
      *
      * @param groupId the group ID
      * @return an array of bytes containing the group's image.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     byte[] getGroupImage(String groupId);
 
@@ -57,7 +57,7 @@ public interface GroupService {
      * @param groupId   the group ID
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the group's image.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     byte[] getGroupImage(String groupId, ImageType imageType);
 
@@ -66,7 +66,7 @@ public interface GroupService {
      *
      * @param groupId the ID of the group
      * @return a list of {@link Reference}s, one for each member of the group.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
     List<GroupMemberReference> getMembers(String groupId);
@@ -76,7 +76,7 @@ public interface GroupService {
      *
      * @param groupId the ID of the group
      * @return a list of {@link FacebookProfile}s, one for each member of the group.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
     List<FacebookProfile> getMemberProfiles(String groupId);
@@ -85,7 +85,7 @@ public interface GroupService {
      * Retrieves a list of group memberships for the authenticated user. Requires "user_groups" permission.
      *
      * @return a list of {@link GroupMembership}s, one for each group the user is a member of.
-     * @throws ApiException                    if there is an error while communicating with Facebook.
+     * @throws AgoravaException                    if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      * @throws InsufficientPermissionException if the user has not granted "user_groups" permission.
      */
@@ -96,7 +96,7 @@ public interface GroupService {
      *
      * @param userId the user ID to retrieve memberships for.
      * @return a list of {@link GroupMembership}s, one for each group the user is a member of.
-     * @throws ApiException                    if there is an error while communicating with Facebook.
+     * @throws AgoravaException                    if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      * @throws InsufficientPermissionException if the user has not granted "user_groups" or "friends_groups" permission.
      */
@@ -107,7 +107,7 @@ public interface GroupService {
      *
      * @param query the search query (e.g., "Spring User Group")
      * @return a list of {@link Group}s matching the search query
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Group> search(String query);
 
@@ -118,7 +118,7 @@ public interface GroupService {
      * @param offset the offset into the matching groups list
      * @param limit  the maximum number of groups to return
      * @return a list of {@link Group}s matching the search query
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Group> search(String query, int offset, int limit);
 

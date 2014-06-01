@@ -35,7 +35,7 @@ public interface MediaService {
      * Retrieves a list of albums belonging to the authenticated user. Requires "user_photos" or "friends_photos" permission.
      *
      * @return a list {@link Album}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -48,7 +48,7 @@ public interface MediaService {
      * @param offset the offset into the list of albums
      * @param limit  the maximum number of albums to return
      * @return a list {@link Album}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -61,7 +61,7 @@ public interface MediaService {
      *
      * @param ownerId the album owner's ID
      * @return a list {@link Album}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -76,7 +76,7 @@ public interface MediaService {
      * @param offset  the offset into the list of albums
      * @param limit   the maximum number of albums to return
      * @return a list {@link Album}s for the user, or an empty list if not available.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -88,7 +88,7 @@ public interface MediaService {
      *
      * @param albumId the album ID
      * @return the requested {@link Album} object.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -102,7 +102,7 @@ public interface MediaService {
      * @param name        the name of the album.
      * @param description the album's description.
      * @return the ID of the newly created album.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -115,7 +115,7 @@ public interface MediaService {
      *
      * @param albumId the album ID
      * @return an array of bytes containing the album's image.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                      if the album is not public and if the user has not granted "user_photos" or
      *                      "friends_photos" permission.
@@ -129,7 +129,7 @@ public interface MediaService {
      * @param albumId   the album ID
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the album's image.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -145,7 +145,7 @@ public interface MediaService {
      *
      * @param objectId either an album ID or a user ID
      * @return a list of {@link Photo}s in the specified album.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -163,7 +163,7 @@ public interface MediaService {
      * @param offset   the offset into the list of photos
      * @param limit    the maximum number of photos to return
      * @return a list of {@link Photo}s in the specified album.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -176,7 +176,7 @@ public interface MediaService {
      *
      * @param photoId the photo's ID
      * @return the requested {@link Photo}
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the photo is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -190,7 +190,7 @@ public interface MediaService {
      *
      * @param photoId the photo ID
      * @return an array of bytes containing the photo's image.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the photo is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -205,7 +205,7 @@ public interface MediaService {
      * @param photoId   the photo ID
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the photo's image.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the photo is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
@@ -220,7 +220,7 @@ public interface MediaService {
      * @param photo A {@link Resource} for the photo data. The given Resource must implement the getFilename() method (such as
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the photo.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
@@ -234,7 +234,7 @@ public interface MediaService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @param caption A caption describing the photo.
      * @return the ID of the photo.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
@@ -247,7 +247,7 @@ public interface MediaService {
      * @param photo A {@link Resource} for the photo data. The given Resource must implement the getFilename() method (such as
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the photo.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
@@ -261,7 +261,7 @@ public interface MediaService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @param caption A caption describing the photo.
      * @return the ID of the photo.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
@@ -271,7 +271,7 @@ public interface MediaService {
      * Retrieves a list of up to 25 videos that the authenticated user is tagged in. Requires "user_videos" permission.
      *
      * @return a list of {@link Video} belonging to the authenticated user.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -284,7 +284,7 @@ public interface MediaService {
      * @param offset the offset into the list of videos
      * @param limit  the maximum number of videos to return
      * @return a list of {@link Video} belonging to the authenticated user.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -297,7 +297,7 @@ public interface MediaService {
      *
      * @param userId the ID of the user who is tagged in the videos
      * @return a list of {@link Video} which the specified user is tagged in.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -311,7 +311,7 @@ public interface MediaService {
      * @param offset the offset into the list of videos
      * @param limit  the maximum number of videos to return
      * @return a list of {@link Video} which the specified user is tagged in.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -323,7 +323,7 @@ public interface MediaService {
      *
      * @param videoId the ID of the video.
      * @return the requested {@link Video} data.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -336,7 +336,7 @@ public interface MediaService {
      *
      * @param videoId the video ID
      * @return an array of bytes containing the video's image.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -349,7 +349,7 @@ public interface MediaService {
      * @param videoId   the video ID
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the video's image.
-     * @throws ApiException                  if there is an error while communicating with Facebook.
+     * @throws AgoravaException                  if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
@@ -363,7 +363,7 @@ public interface MediaService {
      * @param video A {@link Resource} for the video data. The given Resource must implement the getFilename() method (such as
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the video.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
@@ -376,7 +376,7 @@ public interface MediaService {
      * @param video A {@link Resource} for the video data. The given Resource must implement the getFilename() method (such as
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the video.
-     * @throws ApiException if there is an error while communicating with Facebook.
+     * @throws AgoravaException if there is an error while communicating with Facebook.
      * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException if FacebookTemplate was not created with an access token.
      */
