@@ -37,7 +37,7 @@ public interface EventService {
      *
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -51,7 +51,7 @@ public interface EventService {
      * @param limit  the maximum number of events to return
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -64,7 +64,7 @@ public interface EventService {
      * @param userId the user's ID
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -79,7 +79,7 @@ public interface EventService {
      * @param limit  the maximum number of events to return
      * @return a list {@link Invitation}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_events" or "friends_events" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -132,7 +132,7 @@ public interface EventService {
      * @param endTime   the end time of the event.
      * @return the newly created event's ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "create_event" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -143,7 +143,7 @@ public interface EventService {
      *
      * @param eventId the ID of the event
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "create_event" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -199,7 +199,7 @@ public interface EventService {
      *
      * @param eventId the event ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "rsvp_event" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -210,7 +210,7 @@ public interface EventService {
      *
      * @param eventId the event ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "rsvp_event" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -221,7 +221,7 @@ public interface EventService {
      *
      * @param eventId the event ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "rsvp_event" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */

@@ -65,7 +65,7 @@ public interface CommentService {
      * @param message  the comment message
      * @return the new comment's ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -76,7 +76,7 @@ public interface CommentService {
      *
      * @param commentId the comment ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */

@@ -89,7 +89,7 @@ public interface FeedService {
      *
      * @return a list of {@link Post}s from the authenticated user's home feed.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<Post> getHomeFeed();
@@ -102,7 +102,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of {@link Post}s from the authenticated user's home feed.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<Post> getHomeFeed(int offset, int limit);
@@ -145,7 +145,7 @@ public interface FeedService {
      * @param userId the user's ID
      * @return a list of status {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<StatusPost> getStatuses(String userId);
@@ -159,7 +159,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of status {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<StatusPost> getStatuses(String userId, int offset, int limit);
@@ -171,7 +171,7 @@ public interface FeedService {
      *
      * @return a list of link {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<LinkPost> getLinks();
@@ -184,7 +184,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of link {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<LinkPost> getLinks(int offset, int limit);
@@ -197,7 +197,7 @@ public interface FeedService {
      * @param ownerId the owner of the feed (could be a user, page, event, etc)
      * @return a list of link {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<LinkPost> getLinks(String ownerId);
@@ -211,7 +211,7 @@ public interface FeedService {
      * @param limit   the maximum number of posts to return.
      * @return a list of link {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<LinkPost> getLinks(String ownerId, int offset, int limit);
@@ -223,7 +223,7 @@ public interface FeedService {
      *
      * @return a list of note {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<NotePost> getNotes();
@@ -236,7 +236,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of note {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<NotePost> getNotes(int offset, int limit);
@@ -249,7 +249,7 @@ public interface FeedService {
      * @param ownerId the owner of the feed (could be a user, page, event, etc)
      * @return a list of note {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<NotePost> getNotes(String ownerId);
@@ -263,7 +263,7 @@ public interface FeedService {
      * @param limit   the maximum number of posts to return.
      * @return a list of note {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<NotePost> getNotes(String ownerId, int offset, int limit);
@@ -275,7 +275,7 @@ public interface FeedService {
      *
      * @return a list of post {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<Post> getPosts();
@@ -288,7 +288,7 @@ public interface FeedService {
      * @param limit  the maximum number of posts to return.
      * @return a list of post {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<Post> getPosts(int offset, int limit);
@@ -301,7 +301,7 @@ public interface FeedService {
      * @param ownerId the owner of the feed (could be a user, page, event, etc)
      * @return a list of post {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<Post> getPosts(String ownerId);
@@ -315,7 +315,7 @@ public interface FeedService {
      * @param limit   the maximum number of posts to return.
      * @return a list of post {@link Post}s.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "read_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "read_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     List<Post> getPosts(String ownerId, int offset, int limit);
@@ -329,7 +329,7 @@ public interface FeedService {
      * @throws DuplicateStatusException        if the status message duplicates a previously posted status.
      * @throws RateLimitExceededException      if the per-user/per-app rate limit is exceeded.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     String updateStatus(String message);
@@ -343,7 +343,7 @@ public interface FeedService {
      * @throws DuplicateStatusException        if the post duplicates a previous post.
      * @throws RateLimitExceededException      if the per-user/per-app rate limit is exceeded.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     String postLink(String message, FacebookLink link);
@@ -358,7 +358,7 @@ public interface FeedService {
      * @throws DuplicateStatusException        if the post duplicates a previous post.
      * @throws RateLimitExceededException      if the per-user/per-app rate limit is exceeded.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     String post(String ownerId, String message);
@@ -372,7 +372,7 @@ public interface FeedService {
      * @return the ID of the new feed entry.
      * @throws DuplicateStatusException        if the post duplicates a previous post.
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     String postLink(String ownerId, String message, FacebookLink link);
@@ -383,7 +383,7 @@ public interface FeedService {
      *
      * @param id the feed entry ID
      * @throws AgoravaException                if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
      */
     void deletePost(String id);

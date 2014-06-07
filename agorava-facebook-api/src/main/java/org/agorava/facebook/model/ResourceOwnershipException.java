@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,6 +24,9 @@ import org.agorava.api.exception.AgoravaException;
  * For example, attempting to delete someone else's friendlist.
  *
  * @author Craig Walls
+ * @author Werner Keil
+ * 
+ * TODO consider moving to agorava-core, under this or a more general name
  */
 @SuppressWarnings("serial")
 public class ResourceOwnershipException extends AgoravaException {

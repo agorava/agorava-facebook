@@ -36,7 +36,7 @@ public interface PlacesService {
      *
      * @return a list {@link Checkin}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -50,7 +50,7 @@ public interface PlacesService {
      * @param limit  the maximum number of checkins to return
      * @return a list {@link Checkin}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -65,7 +65,7 @@ public interface PlacesService {
      * @param objectId either a Facebook user ID or page ID
      * @return a list {@link Checkin}s, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -82,7 +82,7 @@ public interface PlacesService {
      * @param limit    the maximum number of checkins to return
      * @return a list {@link Checkin}s, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_checkins" or "friends_checkins" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -107,7 +107,7 @@ public interface PlacesService {
      * @param longitude the longitude of the place.
      * @return the ID of the checkin.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "publish_checkins" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -124,7 +124,7 @@ public interface PlacesService {
      * @param tags      a varargs list of user IDs to tag on the checkin.
      * @return the ID of the checkin.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "publish_checkins" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */

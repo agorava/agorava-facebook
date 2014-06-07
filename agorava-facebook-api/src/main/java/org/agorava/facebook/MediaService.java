@@ -36,7 +36,7 @@ public interface MediaService {
      *
      * @return a list {@link Album}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -49,7 +49,7 @@ public interface MediaService {
      * @param limit  the maximum number of albums to return
      * @return a list {@link Album}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -62,7 +62,7 @@ public interface MediaService {
      * @param ownerId the album owner's ID
      * @return a list {@link Album}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -77,7 +77,7 @@ public interface MediaService {
      * @param limit   the maximum number of albums to return
      * @return a list {@link Album}s for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_photos" or "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -89,7 +89,7 @@ public interface MediaService {
      * @param albumId the album ID
      * @return the requested {@link Album} object.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -103,7 +103,7 @@ public interface MediaService {
      * @param description the album's description.
      * @return the ID of the newly created album.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -116,7 +116,7 @@ public interface MediaService {
      * @param albumId the album ID
      * @return an array of bytes containing the album's image.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                      if the album is not public and if the user has not granted "user_photos" or
      *                      "friends_photos" permission.
      */
@@ -130,7 +130,7 @@ public interface MediaService {
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the album's image.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -146,7 +146,7 @@ public interface MediaService {
      * @param objectId either an album ID or a user ID
      * @return a list of {@link Photo}s in the specified album.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -164,7 +164,7 @@ public interface MediaService {
      * @param limit    the maximum number of photos to return
      * @return a list of {@link Photo}s in the specified album.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the album is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -177,7 +177,7 @@ public interface MediaService {
      * @param photoId the photo's ID
      * @return the requested {@link Photo}
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the photo is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -191,7 +191,7 @@ public interface MediaService {
      * @param photoId the photo ID
      * @return an array of bytes containing the photo's image.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the photo is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -206,7 +206,7 @@ public interface MediaService {
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the photo's image.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the photo is not public and if the user has not granted "user_photos" or
      *                                       "friends_photos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -221,7 +221,7 @@ public interface MediaService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the photo.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postPhoto(Resource photo);
@@ -235,7 +235,7 @@ public interface MediaService {
      * @param caption A caption describing the photo.
      * @return the ID of the photo.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postPhoto(Resource photo, String caption);
@@ -248,7 +248,7 @@ public interface MediaService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the photo.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postPhoto(String albumId, Resource photo);
@@ -262,7 +262,7 @@ public interface MediaService {
      * @param caption A caption describing the photo.
      * @return the ID of the photo.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postPhoto(String albumId, Resource photo, String caption);
@@ -272,7 +272,7 @@ public interface MediaService {
      *
      * @return a list of {@link Video} belonging to the authenticated user.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -285,7 +285,7 @@ public interface MediaService {
      * @param limit  the maximum number of videos to return
      * @return a list of {@link Video} belonging to the authenticated user.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -298,7 +298,7 @@ public interface MediaService {
      * @param userId the ID of the user who is tagged in the videos
      * @return a list of {@link Video} which the specified user is tagged in.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -312,7 +312,7 @@ public interface MediaService {
      * @param limit  the maximum number of videos to return
      * @return a list of {@link Video} which the specified user is tagged in.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -324,7 +324,7 @@ public interface MediaService {
      * @param videoId the ID of the video.
      * @return the requested {@link Video} data.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -337,7 +337,7 @@ public interface MediaService {
      * @param videoId the video ID
      * @return an array of bytes containing the video's image.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -350,7 +350,7 @@ public interface MediaService {
      * @param imageType the image type (eg., small, normal, large. square)
      * @return an array of bytes containing the video's image.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException
+     * @throws ResourceOwnershipException
      *                                       if the user has not granted "user_videos" or "friends_videos" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -364,7 +364,7 @@ public interface MediaService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the video.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postVideo(Resource video);
@@ -377,7 +377,7 @@ public interface MediaService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the video.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws InsufficientPermissionException if the user has not granted "publish_stream" permission.
+     * @throws ResourceOwnershipException if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
     // TODO:String postVideo(Resource video, String title, String description);
