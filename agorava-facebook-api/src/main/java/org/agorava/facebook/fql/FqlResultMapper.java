@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +18,14 @@ package org.agorava.facebook.fql;
 
 
 /**
- * An interface used by FqlTemplate to map FQL results to objects of a specific type, on a per-object basis.
+ * An interface used by  {@link FqlService} to map FQL results to objects of a specific type, on a per-object basis.
  * Roughly analogous to a RowMapper used with Spring's JdbcTemplate.
  *
  * @param <T> the type of object to map FQL result data to.
  * @author habuma
  * @author Werner Keil
+ * 
+ * @deprecated see https://developers.facebook.com/docs/reference/fql/
  */
 public interface FqlResultMapper<T> {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import java.util.Map;
  * Defines low-level operations against Facebook's Graph API
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
 public interface GraphApi {
 
@@ -118,6 +119,6 @@ public interface GraphApi {
      */
     void delete(String objectId, String connectionName);
 
-    static final String GRAPH_API_URL = "https://graph.facebook.com/";
+    static final String GRAPH_API_URL = "https://graph.facebook.com/v2.0/";
 
 }

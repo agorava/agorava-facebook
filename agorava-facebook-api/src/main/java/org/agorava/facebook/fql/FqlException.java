@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import org.agorava.api.exception.AgoravaException;
  * FQL exception for Agorava
  *
  * @author Werner Keil
+ * @deprecated see https://developers.facebook.com/docs/reference/fql/
  */
 @SuppressWarnings("serial")
 public class FqlException extends AgoravaException {

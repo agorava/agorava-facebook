@@ -24,8 +24,9 @@ import java.util.Map;
 
 /**
  * Represents a single result item from an FQL query.
- * Given to an {@link FqlResultMapper}, in a way that is analogous to how a ResultSet is given to a RowMapper in Spring's
- * JdbcTemplate.
+ * Given to an {@link FqlResultMapper}.
+ * 
+ * @deprecated see https://developers.facebook.com/docs/reference/fql/
  *
  * @author habuma
  * @author Werner Keil
