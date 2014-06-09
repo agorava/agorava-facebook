@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 
 package org.agorava.facebook.model;
 
+import org.agorava.facebook.Facebook;
 import org.agorava.spi.UserProfile;
 
 import java.io.Serializable;
@@ -98,7 +99,7 @@ public class FacebookProfile extends UserProfile implements Serializable {
 
     public FacebookProfile(String id, String username, String name, String firstName, String lastName, String gender,
                            Locale locale) {
-        super(id);
+        super(id, Facebook.class);
         this.username = username;
         this.name = name;
         this.firstName = firstName;
