@@ -98,7 +98,7 @@ public class FacebookProfile extends UserProfile implements Serializable {
     private List<EducationEntry> education;
 
     public FacebookProfile(String id, String username, String name, String firstName, String lastName, String gender,
-                           Locale locale) {
+            Locale locale) {
         super(id, Facebook.class);
         this.username = username;
         this.name = name;
@@ -131,6 +131,7 @@ public class FacebookProfile extends UserProfile implements Serializable {
      *
      * @return The user's first name
      */
+    @Override
     public String getFirstName() {
         return firstName;
     }
@@ -149,6 +150,7 @@ public class FacebookProfile extends UserProfile implements Serializable {
      *
      * @return The user's last name
      */
+    @Override
     public String getLastName() {
         return lastName;
     }
@@ -398,6 +400,11 @@ public class FacebookProfile extends UserProfile implements Serializable {
      */
     public List<EducationEntry> getEducation() {
         return education;
+    }
+
+    @Override
+    public String getLoginName() {
+        return getUsername();
     }
 
     @Override
