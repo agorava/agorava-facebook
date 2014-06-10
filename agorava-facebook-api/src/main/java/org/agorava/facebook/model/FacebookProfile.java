@@ -404,7 +404,7 @@ public class FacebookProfile extends UserProfile implements Serializable {
 
     @Override
     public String getLoginName() {
-        return getUsername();
+        return getName();
     }
 
     @Override
