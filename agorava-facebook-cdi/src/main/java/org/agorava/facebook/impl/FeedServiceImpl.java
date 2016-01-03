@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ import java.util.Map;
 
 /**
  * @author Antoine Sabot-Durand
+ * @author Werner Keil
  */
 @Named("facebookFeed")
 @Facebook
@@ -74,7 +75,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> getFeed(String ownerId, int offset, int limit) {
-
         JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/feed", offset, limit);
         return deserializeList(responseNode, null, Post.class);
     }
@@ -86,7 +86,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public java.util.List<Post> getHomeFeed(int offset, int limit) {
-
         JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/me/home", offset, limit);
         return deserializeList(responseNode, null, Post.class);
     }
@@ -108,7 +107,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<StatusPost> getStatuses(String userId, int offset, int limit) {
-
         JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + userId + "/statuses", offset, limit);
         return deserializeList(responseNode, "status", StatusPost.class);
     }
@@ -130,7 +128,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<LinkPost> getLinks(String ownerId, int offset, int limit) {
-
         JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/links", offset, limit);
         return deserializeList(responseNode, "link", LinkPost.class);
     }
@@ -152,7 +149,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<NotePost> getNotes(String ownerId, int offset, int limit) {
-
         JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/notes", offset, limit);
         return deserializeList(responseNode, "note", NotePost.class);
     }
@@ -174,14 +170,12 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> getPosts(String ownerId, int offset, int limit) {
-
         JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/posts", offset, limit);
         return deserializeList(responseNode, null, Post.class);
     }
 
     @Override
     public Post getPost(String entryId) {
-
         ObjectNode responseNode = (ObjectNode) getService().get("https://graph.facebook.com/" + entryId,
                 JsonNode.class);
         return deserializePost(null, Post.class, responseNode);
@@ -199,7 +193,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public String postLink(String ownerId, String message, FacebookLink link) {
-
         Map<String, Object> map = new HashMap();
         map.put("link", link.getLink());
         map.put("name", link.getName());
@@ -211,7 +204,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public String post(String ownerId, String message) {
-
         Map<String, Object> map = new HashMap();
         map.put("message", message);
         return graphApi.publish(ownerId, "feed", map);
@@ -219,7 +211,6 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public void deletePost(String id) {
-
         graphApi.delete(id);
     }
 

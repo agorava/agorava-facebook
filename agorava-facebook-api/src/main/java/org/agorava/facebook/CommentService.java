@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook;
 
 import org.agorava.facebook.model.Comment;
@@ -26,6 +25,7 @@ import java.util.List;
  * Defines operations for reading and posting comments to Facebook.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
 public interface CommentService {
 

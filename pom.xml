@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  ~ Copyright 2014 Agorava
+  ~ Copyright 2014-2016 Agorava
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.agorava</groupId>
-	<version>0.7.1-SNAPSHOT</version>
 	<artifactId>agorava-facebook-parent</artifactId>
 	<packaging>pom</packaging>
 
