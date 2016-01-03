@@ -30,7 +30,7 @@ import java.util.List;
 public interface CommentService {
 
     /**
-     * Retrieves the first 25 comments for a given object.
+     * Retrieves the first <code>N</code> comments for a given object.
      *
      * @param objectId the ID of the object
      * @return a list of {@link Comment}s for the specified object
@@ -90,5 +90,4 @@ public interface CommentService {
      * @throws AgoravaException if there is an error while communicating with Facebook.
      */
     List<Reference> getLikes(String objectId);
-
 }
