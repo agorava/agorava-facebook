@@ -25,7 +25,7 @@ import org.agorava.api.exception.AgoravaException;
  * @author Craig Walls
  * @author Werner Keil
  * 
- * TODO consider moving to agorava-core, under this or a more general name
+ * @deprecated TODO consider moving to agorava-core
  */
 @SuppressWarnings("serial")
 public class ResourceOwnershipException extends AgoravaException {
