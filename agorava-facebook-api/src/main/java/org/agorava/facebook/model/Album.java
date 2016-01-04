@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2013-2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
-import java.io.Serializable;
 import java.util.Date;
+
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing a Facebook photo album.
@@ -26,7 +27,7 @@ import java.util.Date;
  * @author Craig Walls
  * @author Werner Keil
  */
-public class Album implements Serializable {
+public class Album implements Identifiable, Nameable {
 
     /**
 	 * 
@@ -34,27 +35,16 @@ public class Album implements Serializable {
 	private static final long serialVersionUID = 8674595786151983106L;
 
 	private final String id;
-
     private final Reference from;
-
     private final String name;
-
     private String description;
-
     private String location;
-
     private final String link;
-
     private Privacy privacy;
-
     private int count;
-
     private Type type;
-
     private Date createdTime;
-
     private Date updatedTime;
-
     private String coverPhotoId;
 
     private Album(String id, Reference from, String name, Type type, String link, int count, Privacy privacy,
@@ -125,5 +115,4 @@ public class Album implements Serializable {
     public static enum Type {NORMAL, MOBILE, PROFILE, WALL, FRIENDS_WALLS, UNKNOWN}
 
     public static enum Privacy {EVERYONE, FRIENDS_OF_FRIENDS, FRIENDS, CUSTOM}
-
 }

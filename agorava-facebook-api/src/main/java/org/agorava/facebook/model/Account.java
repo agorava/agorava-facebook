@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
-import java.io.Serializable;
-
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing a Facebook user account.
  *
  * @author Werner Keil
  */
-public class Account implements Serializable {
+public class Account implements Identifiable, Nameable {
 
     /**
 	 * 
@@ -33,11 +32,8 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = -9210600428567597114L;
 
 	private final String id;
-
     private final String name;
-
     private final String category;
-
     private final String accessToken;
 
     public Account(String id, String name, String category, String accessToken) {
@@ -62,5 +58,4 @@ public class Account implements Serializable {
     public String getAccessToken() {
         return accessToken;
     }
-
 }
