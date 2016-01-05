@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2014 Agorava
+ * Copyright 2013-2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 
 package org.agorava.facebook;
 
@@ -118,7 +117,14 @@ public interface GraphApi {
      * @param connectionName the connection name
      */
     void delete(String objectId, String connectionName);
+    
+    /**
+     * Returns the API base URL
+     *
+     * @return the API base URL
+     */
+    public String getApiBaseUrl();
 
-    static final String GRAPH_API_URL = "https://graph.facebook.com/v2.0/";
+    static final String GRAPH_API_URL = "https://graph.facebook.com/v2.5/";
 
 }
