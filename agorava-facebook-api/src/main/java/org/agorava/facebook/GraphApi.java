@@ -124,7 +124,8 @@ public interface GraphApi {
      * @return the API base URL
      */
     public String getApiBaseUrl();
+    
+    static final String API_VERSION = "2.5";
 
-    static final String GRAPH_API_URL = "https://graph.facebook.com/v2.5/";
-
+ 	static final String GRAPH_API_URL = "https://graph.facebook.com/v" + API_VERSION + "/";
 }

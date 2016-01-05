@@ -87,7 +87,7 @@ public interface GroupService {
      * @return a list of {@link GroupMembership}s, one for each group the user is a member of.
      * @throws AgoravaException                    if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
-     * @throws ResourceOwnershipException if the user has not granted "user_groups" permission.
+     * @throws OAuthResourceException if the user has not granted "user_groups" permission.
      */
     List<GroupMembership> getMemberships();
 
@@ -98,7 +98,7 @@ public interface GroupService {
      * @return a list of {@link GroupMembership}s, one for each group the user is a member of.
      * @throws AgoravaException                    if there is an error while communicating with Facebook.
      * @throws MissingAuthorizationException   if FacebookTemplate was not created with an access token.
-     * @throws ResourceOwnershipException if the user has not granted "user_groups" or "friends_groups" permission.
+     * @throws OAuthResourceException if the user has not granted "user_groups" or "friends_groups" permission.
      */
     List<GroupMembership> getMemberships(String userId);
 

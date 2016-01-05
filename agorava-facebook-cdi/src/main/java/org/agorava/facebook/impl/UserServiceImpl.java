@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-/**
- *
- */
 package org.agorava.facebook.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -38,6 +35,7 @@ import java.util.Map;
 
 /**
  * @author Antoine Sabot-Durand
+ * @author Werner Keil
  */
 @Facebook
 @Named
@@ -81,7 +79,7 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
 
     @Override
     public List<String> getUserPermissions() {
-        JsonNode responseNode = getService().get("https://graph.facebook.com/me/permissions", JsonNode.class);
+        JsonNode responseNode = getService().get(graphApi.getApiBaseUrl() + "me/permissions", JsonNode.class);
         return deserializePermissionsNodeToList(responseNode);
     }
 

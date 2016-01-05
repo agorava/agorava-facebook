@@ -18,11 +18,14 @@
  */
 package org.agorava.facebook;
 
+import static org.agorava.facebook.GraphApi.GRAPH_API_URL;
+import static org.agorava.facebook.GraphApi.API_VERSION;
 
 import org.agorava.api.oauth.application.OAuthAppSettings;
 import org.agorava.api.service.OAuthEncoder;
 import org.agorava.api.service.Preconditions;
 import org.agorava.spi.ProviderConfigOauth20;
+import org.agorava.spi.ProviderConfigOauth20Final;
 
 /**
  * @author Antoine Sabot-Durand
@@ -30,17 +33,18 @@ import org.agorava.spi.ProviderConfigOauth20;
  */
 
 @Facebook
-public class FacebookApi extends ProviderConfigOauth20 {
+public class FacebookApi extends ProviderConfigOauth20Final {
 
-    private static final String AUTHORIZE_URL = "https://www.facebook.com/dialog/oauth?client_id=%s&redirect_uri=%s";
+    private static final String AUTHORIZE_URL = "https://www.facebook.com/v" + API_VERSION + 
+    		"/dialog/oauth?client_id=%s&client_secret=%s&redirect_uri=%s";
 
     private static final String SCOPED_AUTHORIZE_URL = AUTHORIZE_URL + "&scope=%s";
-
+    
     private static final String MEDIA_NAME = "Facebook";
 
     @Override
     public String getAccessTokenEndpoint() {
-        return "https://graph.facebook.com/oauth/access_token";
+        return GRAPH_API_URL + "oauth/access_token";
     }
 
     @Override
@@ -50,10 +54,11 @@ public class FacebookApi extends ProviderConfigOauth20 {
 
         // Append scope if present
         if (config.hasScope()) {
-            return String.format(SCOPED_AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()),
-                    OAuthEncoder.encode(config.getScope()));
+            return String.format(SCOPED_AUTHORIZE_URL, config.getApiKey(), config.getApiSecret(), 
+            		OAuthEncoder.encode(config.getCallback()), OAuthEncoder.encode(config.getScope()));
         } else {
-            return String.format(AUTHORIZE_URL, config.getApiKey(), OAuthEncoder.encode(config.getCallback()));
+            return String.format(AUTHORIZE_URL, config.getApiKey(), config.getApiSecret(), 
+            		OAuthEncoder.encode(config.getCallback()));
         }
     }
 

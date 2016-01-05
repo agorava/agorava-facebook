@@ -46,7 +46,7 @@ public interface PageService {
      * @param pageId the page ID
      * @return true if the authenticated user is an admin of the specified page.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_pages" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -67,7 +67,7 @@ public interface PageService {
      * @param message the message to post
      * @return the ID of the new feed entry
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException   if the user is not a page administrator.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -84,7 +84,7 @@ public interface PageService {
      * @param link    the link details
      * @return the ID of the new feed entry.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException   if the user is not a page administrator.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -101,7 +101,7 @@ public interface PageService {
      *        {@link FileSystemResource} or {@link ClassPathResource}).
      * @return the ID of the photo.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException if the user has not granted "manage_pages" permission.
+     * @throws OAuthResourceException if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException if the user is not a page administrator.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -118,7 +118,7 @@ public interface PageService {
      * @param caption A caption describing the photo.
      * @return the ID of the photo.
      * @throws AgoravaException if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException if the user has not granted "manage_pages" permission.
+     * @throws OAuthResourceException if the user has not granted "manage_pages" permission.
      * @throws PageAdministrationException if the user is not a page administrator.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */

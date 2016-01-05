@@ -31,7 +31,7 @@ public interface QuestionService {
      * @param questionText the question text
      * @return the ID of the newly created question
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -45,7 +45,7 @@ public interface QuestionService {
      * @param optionText the text of the option
      * @return the ID of the newly created option
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -59,7 +59,7 @@ public interface QuestionService {
      * @param questionId the ID of the question
      * @return the {@link Question}
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -71,7 +71,7 @@ public interface QuestionService {
      *
      * @return a list of {@link Question}s
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -84,7 +84,7 @@ public interface QuestionService {
      *
      * @return a list of {@link Question}s
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -96,7 +96,7 @@ public interface QuestionService {
      *
      * @param questionId the ID of the question to delete
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -110,7 +110,7 @@ public interface QuestionService {
      * @param optionId the ID of the option
      * @return the {@link QuestionOption}
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -124,7 +124,7 @@ public interface QuestionService {
      * @param questionId the ID of the question to retrieve options for
      * @return a list of {@link QuestionOption}s
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -136,7 +136,7 @@ public interface QuestionService {
      *
      * @param optionId the ID of the option to delete
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */

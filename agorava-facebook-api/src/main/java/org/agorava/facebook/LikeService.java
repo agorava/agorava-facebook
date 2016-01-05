@@ -45,7 +45,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -58,7 +58,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" or "friends_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -71,7 +71,7 @@ public interface LikeService {
      *
      * @param objectId the object ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission or if the user does not
      *                                       have permission to access the object.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -85,7 +85,7 @@ public interface LikeService {
      *
      * @param objectId the object ID
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "publish_stream" permission or if the user does not
      *                                       have permission to access the object.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
@@ -98,7 +98,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -111,7 +111,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -123,7 +123,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -136,7 +136,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -148,7 +148,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -161,7 +161,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -173,7 +173,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -187,7 +187,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" or "friends_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -199,7 +199,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_activities" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -212,7 +212,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_activities" or "friends_activities" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -224,7 +224,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_interests" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -237,7 +237,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_interests" or "friends_interests" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -249,7 +249,7 @@ public interface LikeService {
      *
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -262,7 +262,7 @@ public interface LikeService {
      * @param userId the ID of the user
      * @return a list of {@link Page} objects
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "user_likes" or "friends_likes" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */

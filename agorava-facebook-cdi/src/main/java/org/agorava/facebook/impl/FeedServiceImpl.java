@@ -75,7 +75,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> getFeed(String ownerId, int offset, int limit) {
-        JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/feed", offset, limit);
+        JsonNode responseNode =  fetchConnectionList(graphApi.getApiBaseUrl() + ownerId + "/feed", offset, limit);
         return deserializeList(responseNode, null, Post.class);
     }
 
@@ -86,7 +86,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public java.util.List<Post> getHomeFeed(int offset, int limit) {
-        JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/me/home", offset, limit);
+        JsonNode responseNode = fetchConnectionList(graphApi.getApiBaseUrl() + "me/home", offset, limit);
         return deserializeList(responseNode, null, Post.class);
     }
 
@@ -107,7 +107,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<StatusPost> getStatuses(String userId, int offset, int limit) {
-        JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + userId + "/statuses", offset, limit);
+        JsonNode responseNode = fetchConnectionList(graphApi.getApiBaseUrl() + userId + "/statuses", offset, limit);
         return deserializeList(responseNode, "status", StatusPost.class);
     }
 
@@ -128,7 +128,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<LinkPost> getLinks(String ownerId, int offset, int limit) {
-        JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/links", offset, limit);
+        JsonNode responseNode = fetchConnectionList(graphApi.getApiBaseUrl() + ownerId + "/links", offset, limit);
         return deserializeList(responseNode, "link", LinkPost.class);
     }
 
@@ -149,7 +149,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<NotePost> getNotes(String ownerId, int offset, int limit) {
-        JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/notes", offset, limit);
+        JsonNode responseNode = fetchConnectionList(graphApi.getApiBaseUrl() + ownerId + "/notes", offset, limit);
         return deserializeList(responseNode, "note", NotePost.class);
     }
 
@@ -170,13 +170,13 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
 
     @Override
     public List<Post> getPosts(String ownerId, int offset, int limit) {
-        JsonNode responseNode = fetchConnectionList("https://graph.facebook.com/" + ownerId + "/posts", offset, limit);
+        JsonNode responseNode = fetchConnectionList(graphApi.getApiBaseUrl() + ownerId + "/posts", offset, limit);
         return deserializeList(responseNode, null, Post.class);
     }
 
     @Override
     public Post getPost(String entryId) {
-        ObjectNode responseNode = (ObjectNode) getService().get("https://graph.facebook.com/" + entryId,
+        ObjectNode responseNode = (ObjectNode) getService().get(graphApi.getApiBaseUrl() + entryId,
                 JsonNode.class);
         return deserializePost(null, Post.class, responseNode);
     }
@@ -268,7 +268,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
-        String uri = buildUri("https://graph.facebook.com/" + userId + "/feed", params);
+        String uri = buildUri(graphApi.getApiBaseUrl() + userId + "/feed", params);
         JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
@@ -323,5 +323,10 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         }
         return "post";
     }
-
+    
+	private static final String[] ALL_POST_FIELDS = {
+		"id", "actions", "admin_creator", "application", "caption", "created_time", "description", "from", "icon",
+		"is_hidden", "is_published", "link", "message", "message_tags", "name", "object_id", "picture", "place", 
+		"privacy", "properties", "source", "status_type", "story", "to", "type", "updated_time", "with_tags", "shares"
+	};
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2014 Agorava
+ * Copyright 2013-2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 
 package org.agorava.facebook;
 
@@ -36,7 +35,7 @@ public interface FriendService {
      *
      * @return a list {@link Reference}s, each representing a friends list for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "read_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -48,7 +47,7 @@ public interface FriendService {
      * @param userId the user's ID
      * @return a list {@link Reference}s, each representing a friends list for the user, or an empty list if not available.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "read_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -80,7 +79,7 @@ public interface FriendService {
      * @param name the name of the friend list.
      * @return the ID of the newly created friend list.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -93,7 +92,7 @@ public interface FriendService {
      * @param name   the name of the friend list.
      * @return the ID of the newly created friend list.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -104,7 +103,7 @@ public interface FriendService {
      *
      * @param friendListId the ID of the friend list to remove.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -116,7 +115,7 @@ public interface FriendService {
      * @param friendListId the friend list ID
      * @param friendId     The ID of the user to add to the list. The user must be a friend of the list's owner.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
@@ -128,7 +127,7 @@ public interface FriendService {
      * @param friendListId the friend list ID
      * @param friendId     The ID of the user to add to the list.
      * @throws AgoravaException                  if there is an error while communicating with Facebook.
-     * @throws ResourceOwnershipException
+     * @throws OAuthResourceException
      *                                       if the user has not granted "manage_friendlists" permission.
      * @throws OAuthParametersMissingException if Facebook connection was not created with an access token.
      */
