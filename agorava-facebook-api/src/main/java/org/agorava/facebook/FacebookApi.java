@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import org.agorava.spi.ProviderConfigOauth20;
 
 /**
  * @author Antoine Sabot-Durand
+ * @author Werner Keil
  */
 
 @Facebook
@@ -35,7 +36,7 @@ public class FacebookApi extends ProviderConfigOauth20 {
 
     private static final String SCOPED_AUTHORIZE_URL = AUTHORIZE_URL + "&scope=%s";
 
-    static private String MEDIA_NAME = "Facebook";
+    private static final String MEDIA_NAME = "Facebook";
 
     @Override
     public String getAccessTokenEndpoint() {
@@ -60,6 +61,4 @@ public class FacebookApi extends ProviderConfigOauth20 {
     public String getProviderName() {
         return MEDIA_NAME;
     }
-
-
 }
