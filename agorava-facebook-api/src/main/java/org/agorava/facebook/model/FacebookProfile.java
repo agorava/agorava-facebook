@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
+import org.agorava.api.function.Nameable;
 import org.agorava.facebook.Facebook;
+import org.agorava.facebook.GraphApi;
 import org.agorava.spi.UserProfile;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -29,72 +29,42 @@ import java.util.Locale;
  * Model class containing a Facebook user's profile information.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
 @SuppressWarnings("serial")
-public class FacebookProfile extends UserProfile implements Serializable {
+public class FacebookProfile extends UserProfile implements Nameable {
 
     private final String username;
-
     private final String name;
-
     private final String firstName;
-
     private String middleName;
-
     private final String lastName;
-
     private final String gender;
-
     private final Locale locale;
-
     private String link;
-
     private String website;
-
     private String email;
-
     private String thirdPartyId;
-
     private Integer timezone;
-
     private Date updatedTime;
-
     private Boolean verified;
-
     private String about;
-
     private String bio;
-
     private String birthday;
-
     private Reference location;
-
     private Reference hometown;
-
     private List<String> interestedIn;
-
     private List<Reference> inspirationalPeople;
-
     private List<Reference> languages;
-
     private List<Reference> sports;
-
     private List<Reference> favoriteTeams;
-
     private List<Reference> favoriteAthletes;
-
     private String religion;
-
     private String political;
-
     private String quotes;
-
     private String relationshipStatus;
-
     private Reference significantOther;
-
     private List<WorkEntry> work;
-
     private List<EducationEntry> education;
 
     public FacebookProfile(String id, String username, String name, String firstName, String lastName, String gender,
@@ -414,6 +384,6 @@ public class FacebookProfile extends UserProfile implements Serializable {
 
     @Override
     public String getProfileImageUrl() {
-        return "https://graph.facebook.com/" + getId() + "/picture";
+        return GraphApi.GRAPH_API_URL + getId() + "/picture";
     }
 }

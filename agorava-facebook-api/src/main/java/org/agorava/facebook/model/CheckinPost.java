@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
 import java.util.Date;
 import java.util.List;
-
 
 /**
  * Model class representing a feed Post to announce a Checkin on a user's wall.
@@ -27,6 +25,7 @@ import java.util.List;
  * To get the Checkin, get the Checkin ID by calling getCheckinId() and then call getChecking(checkinId) on CheckinOperations.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
 public class CheckinPost extends Post {
 

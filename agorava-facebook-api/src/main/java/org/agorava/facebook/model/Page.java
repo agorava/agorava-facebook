@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
+
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing a Facebook page.
@@ -25,35 +27,24 @@ package org.agorava.facebook.model;
  * entered.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Page {
+@SuppressWarnings("serial")
+public class Page implements Nameable, Identifiable {
 
     private final String id;
-
     private final String name;
-
     private final String category;
-
     private final String link;
-
     private String description;
-
     private Location location;
-
     private String website;
-
     private String picture;
-
     private String phone;
-
     private String affiliation;
-
     private String companyOverview;
-
     private int fanCount;
-
     private int likes;
-
     private int checkins;
 
     public Page(String id, String name, String link, String category) {

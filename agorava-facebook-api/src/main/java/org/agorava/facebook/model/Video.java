@@ -25,6 +25,7 @@ import java.util.List;
  * Model class representing a video.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
 public class Video {
     private String id;

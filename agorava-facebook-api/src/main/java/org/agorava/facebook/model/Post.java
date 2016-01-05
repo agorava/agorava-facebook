@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,54 +14,40 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 import org.agorava.facebook.LikeService;
 
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * Model class representing an entry in a feed.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Post {
+@SuppressWarnings("serial")
+public class Post implements Identifiable, Nameable {
 
     private final String id;
-
     private final Reference from;
-
     private final Date createdTime;
-
     private final Date updatedTime;
-
     private List<Reference> to;
-
     private String message;
-
     private String picture;
-
     private String link;
-
     private String name;
-
     private String caption;
-
     private String description;
-
     private String icon;
-
     private Reference application;
-
     private PostType type;
-
     private ListAndCount<Reference> likes;
-
     private ListAndCount<Comment> comments;
-
     private int sharesCount;
 
     public Post(String id, Reference from, Date createdTime, Date updatedTime) {
@@ -155,7 +141,6 @@ public class Post {
     }
 
     public int getCommentCount() {
-
         return comments != null ? comments.getCount() : 0;
     }
 

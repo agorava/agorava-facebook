@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
-import java.io.Serializable;
 import java.util.Date;
+
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 
 /**
@@ -27,7 +28,7 @@ import java.util.Date;
  * @author Craig Walls
  * @author Werner Keil
  */
-public class Event implements Serializable {
+public class Event implements Identifiable, Nameable {
 
     /**
 	 * 
@@ -35,21 +36,13 @@ public class Event implements Serializable {
 	private static final long serialVersionUID = 907894207694942907L;
 
 	private final String id;
-
     private final String name;
-
     private String description;
-
     private final Reference owner;
-
     private final Privacy privacy;
-
     private final Date startTime;
-
     private final Date endTime;
-
     private String location;
-
     private final Date updatedTime;
 
     public Event(String id, String name, Reference owner, Privacy privacy, Date startTime, Date endTime, Date updatedTime) {
@@ -99,5 +92,4 @@ public class Event implements Serializable {
     }
 
     public static enum Privacy {OPEN, SECRET, CLOSED}
-
 }

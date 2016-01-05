@@ -16,6 +16,7 @@
 
 package org.agorava.facebook;
 
+import org.agorava.api.rest.Api;
 import org.agorava.facebook.model.ImageType;
 
 import java.util.List;
@@ -27,7 +28,7 @@ import java.util.Map;
  * @author Craig Walls
  * @author Werner Keil
  */
-public interface GraphApi {
+public interface GraphApi extends Api {
 
     /**
      * Fetches an object, extracting it into the given Java type Requires appropriate permission to fetch the object.
@@ -117,13 +118,6 @@ public interface GraphApi {
      * @param connectionName the connection name
      */
     void delete(String objectId, String connectionName);
-    
-    /**
-     * Returns the API base URL
-     *
-     * @return the API base URL
-     */
-    public String getApiBaseUrl();
     
     static final String API_VERSION = "2.5";
 

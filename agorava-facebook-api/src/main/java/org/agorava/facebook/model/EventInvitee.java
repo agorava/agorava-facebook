@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,19 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
+
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing someone who has been invited to an event.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class EventInvitee {
+@SuppressWarnings("serial")
+public class EventInvitee implements Identifiable, Nameable {
     private String id;
 
     private String name;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,28 +14,26 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import org.agorava.api.function.Identifiable;
+
 /**
  * Model class representing a question asked by a Facebook user.
  *
- * @author habuma
+ * @author Werner Keil
  */
-public class Question {
+@SuppressWarnings("serial")
+public class Question implements Identifiable {
 
     private final String id;
-
     private final String text;
-
     private final Date createdTime;
-
     private final Date updatedTime;
-
     private final Reference from;
 
     private List<QuestionOption> options;

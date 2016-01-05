@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,45 +14,35 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
 import java.util.Date;
 import java.util.List;
 
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing a photo.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Photo {
-    private String id;
-
+@SuppressWarnings("serial")
+public class Photo implements Identifiable, Nameable {
+    private final String id;
     private String name;
-
-    private Reference from;
-
-    private String link;
-
-    private String icon;
-
+    private final Reference from;
+    private final String link;
+    private final String icon;
     private Integer position;
-
-    private Date createdTime;
-
+    private final Date createdTime;
     private Date updatedTime;
-
     private List<Tag> tags;
-
     private Image oversizedImage;
-
     private Image sourceImage;
-
     private Image smallImage;
-
     private Image albumImage;
-
     private Image tinyImage;
 
     private Photo(String id, Reference from, String link, String icon, Date createdTime, List<Image> images) {
@@ -158,5 +148,4 @@ public class Photo {
             return source;
         }
     }
-
 }

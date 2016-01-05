@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
+
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * A simple reference to another Facebook object without the complete set of object data.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Reference {
+@SuppressWarnings("serial")
+public class Reference implements Identifiable, Nameable {
 
     private final String id;
-
     private final String name;
 
     public Reference(String id) {
@@ -44,5 +47,4 @@ public class Reference {
     public String getName() {
         return name;
     }
-
 }

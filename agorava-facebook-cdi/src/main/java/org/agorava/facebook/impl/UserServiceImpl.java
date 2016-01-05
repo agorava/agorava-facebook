@@ -79,7 +79,7 @@ public class UserServiceImpl extends FacebookBaseService implements UserService 
 
     @Override
     public List<String> getUserPermissions() {
-        JsonNode responseNode = getService().get(graphApi.getApiBaseUrl() + "me/permissions", JsonNode.class);
+        JsonNode responseNode = getService().get(graphApi.getBaseUrl() + "me/permissions", JsonNode.class);
         return deserializePermissionsNodeToList(responseNode);
     }
 

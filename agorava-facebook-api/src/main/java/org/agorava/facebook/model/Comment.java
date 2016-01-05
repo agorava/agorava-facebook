@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+
+import org.agorava.api.function.Identifiable;
 
 /**
  * Model class representing a comment.
@@ -27,7 +27,7 @@ import java.util.List;
  * @author Craig Walls
  * @author Werner Keil
  */
-public class Comment implements Serializable {
+public class Comment implements Identifiable {
     /**
 	 * 
 	 */

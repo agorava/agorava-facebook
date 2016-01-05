@@ -51,19 +51,19 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     private ObjectMapper objectMapper;
 
 	@Override
-	public String getApiBaseUrl() {
+	public String getBaseUrl() {
 		return GRAPH_API_URL;
 	}
     
     @Override
     public <T> T fetchObject(String objectId, Class<T> type) {
-        String uri = getApiBaseUrl() + objectId;
+        String uri = getBaseUrl() + objectId;
         return getService().get(uri, type);
     }
 
     @Override
     public <T> T fetchObject(String objectId, Class<T> type, Map<String, String> queryParameters) {
-        String uri = buildUri(getApiBaseUrl() + objectId, queryParameters);
+        String uri = buildUri(getBaseUrl() + objectId, queryParameters);
         return getService().get(uri, type);
     }
 
@@ -81,7 +81,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     public <T> List<T> fetchConnections(String objectId, String connectionType, Class<T> type,
                                         Map<String, String> queryParameters) {
         String connectionPath = connectionType != null && connectionType.length() > 0 ? "/" + connectionType : "";
-        String uri = buildUri(getApiBaseUrl() + objectId + connectionPath, queryParameters);
+        String uri = buildUri(getBaseUrl() + objectId + connectionPath, queryParameters);
         JsonNode dataNode = getService().get(uri, JsonNode.class);
         return deserializeDataList(dataNode.get("data"), type);
     }
@@ -103,14 +103,14 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     @Override
     @SuppressWarnings("unchecked")
     public String publish(String objectId, String connectionType, Map<String, Object> data) {
-        String uri = getApiBaseUrl() + objectId + "/" + connectionType;
+        String uri = getBaseUrl() + objectId + "/" + connectionType;
         Map<String, Object> response = getService().post(uri, data, Map.class);
         return (String) response.get("id");
     }
 
     @Override
     public void post(String objectId, String connectionType, Map<String, String> data) {
-        String uri = getApiBaseUrl() + objectId + "/" + connectionType;
+        String uri = getBaseUrl() + objectId + "/" + connectionType;
         getService().post(uri, data, String.class);
     }
 
@@ -118,7 +118,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     public void delete(String objectId) {
         Map<String, String> deleteRequest = new HashMap();
         deleteRequest.put("method", "delete");
-        String uri = getApiBaseUrl() + objectId;
+        String uri = getBaseUrl() + objectId;
         getService().post(uri, deleteRequest, String.class);
     }
 
@@ -126,7 +126,7 @@ public class GraphApiImpl extends FacebookBaseService implements GraphApi {
     public void delete(String objectId, String connectionType) {
         Map<String, String> deleteRequest = new HashMap();
         deleteRequest.put("method", "delete");
-        String uri = getApiBaseUrl() + objectId + "/" + connectionType;
+        String uri = getBaseUrl() + objectId + "/" + connectionType;
         getService().post(uri, deleteRequest, String.class);
     }
 

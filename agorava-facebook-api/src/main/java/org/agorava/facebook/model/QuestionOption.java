@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,25 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
 import java.util.Date;
 
-public class QuestionOption {
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
+
+/**
+ * Model class representing a question option.
+ *
+ * @author Werner Keil
+ */
+@SuppressWarnings("serial")
+public class QuestionOption implements Identifiable, Nameable {
 
     private final String id;
-
     private final String name;
-
     private final Reference from;
-
     private final int votes;
-
     private final Date createdTime;
 
     public QuestionOption(String id, String name, Reference from, int votes, Date createdTime) {
@@ -58,5 +62,4 @@ public class QuestionOption {
     public Date getCreatedTime() {
         return createdTime;
     }
-
 }

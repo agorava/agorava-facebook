@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,18 +17,22 @@
 
 package org.agorava.facebook.model;
 
-public class GroupMembership {
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
+
+/**
+ * Model class representing a Group membership.
+ *
+ * @author Werner Keil
+ */
+@SuppressWarnings("serial")
+public class GroupMembership implements Identifiable, Nameable {
 
     private final String id;
-
     private final String name;
-
     private final int version;
-
     private final int bookmarkOrder;
-
     private final boolean administrator;
-
     private int unread;
 
     public GroupMembership(String id, String name, int version, int bookmarkOrder, boolean administrator) {

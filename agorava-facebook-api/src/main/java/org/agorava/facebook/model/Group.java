@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,33 +14,29 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
 import java.util.Date;
 
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing a Group.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Group {
+@SuppressWarnings("serial")
+public class Group implements Identifiable, Nameable {
 
     private final String id;
-
     private final Reference owner;
-
     private final String name;
-
     private final Privacy privacy;
-
     private final String icon;
-
     private final Date updatedTime;
-
     private final String email;
-
     private String description;
 
     public Group(String id, Reference owner, String name, Privacy privacy, String icon, Date updatedTime, String email) {
@@ -86,5 +82,4 @@ public class Group {
     }
 
     public static enum Privacy {OPEN, SECRET, CLOSED}
-
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Agorava
+ * Copyright 2016 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,25 +14,25 @@
  * limitations under the License.
  */
 
-
 package org.agorava.facebook.model;
 
 import java.util.Date;
+
+import org.agorava.api.function.Identifiable;
+import org.agorava.api.function.Nameable;
 
 /**
  * Model class representing a tagged user in a video, photo, or checkin.
  *
  * @author Craig Walls
+ * @author Werner Keil
  */
-public class Tag {
+@SuppressWarnings("serial")
+public class Tag implements Identifiable, Nameable {
     private final String id;
-
     private final String name;
-
     private final Integer x;
-
     private final Integer y;
-
     private final Date createdTime;
 
     public String getId() {
