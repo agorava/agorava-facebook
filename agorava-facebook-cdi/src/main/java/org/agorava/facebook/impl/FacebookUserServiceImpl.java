@@ -39,7 +39,7 @@ import java.util.Map;
  */
 @Facebook
 @Named
-public class UserServiceImpl extends FacebookBaseService implements UserService {
+public class FacebookUserServiceImpl extends FacebookBaseService implements UserService {
 
     @Inject
     @Facebook
