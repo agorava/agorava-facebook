@@ -226,7 +226,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("type", "post");
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
-        String uri = buildUri("https://graph.facebook.com/search", params);
+        String uri = buildUri(graphApi.getBaseUrl() + "search", params);
         JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
@@ -242,7 +242,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
-        String uri = buildUri("https://graph.facebook.com/me/home", params);
+        String uri = buildUri(graphApi.getBaseUrl() + "home", params);
         JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
@@ -268,7 +268,7 @@ public class FeedServiceImpl extends FacebookBaseService implements FeedService 
         params.put("q", query);
         params.put("offset", String.valueOf(offset));
         params.put("limit", String.valueOf(limit));
-        String uri = buildUri(graphApi.getBaseUrl() + userId + "/feed", params);
+        String uri = buildUri(graphApi.getBaseUrl() + userId + "feed", params);
         JsonNode responseNode = getService().get(uri, JsonNode.class);
         return deserializeList(responseNode, null, Post.class);
     }
