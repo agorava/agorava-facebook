@@ -25,4 +25,7 @@ workflows:
   maven_test:
     jobs:
       - maven/test # checkout, build, test, and upload test results
-      - deployment
+      - deployment:
+      - deployment:
+          requires:
+            - maven/test
