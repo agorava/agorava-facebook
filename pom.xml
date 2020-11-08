@@ -23,7 +23,7 @@
 
 	<modules>
 		<module>agorava-facebook-api</module> 
-		<!-- <module>agorava-facebook-cdi</module -->
+		<module>agorava-facebook-cdi</module>
 	</modules>
 
 	<dependencyManagement>
