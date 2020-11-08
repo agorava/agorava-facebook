@@ -3,7 +3,26 @@ version: 2.1
 orbs:
   maven: circleci/maven@0.0.12
 
+jobs:
+  deployment:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
+    
+    steps:
+      - checkout
+        
+      # run deployment!
+      - run: mvn --batch-mode deploy -Dmaven.test.skip -DcreateDocs=true -s settings.xml
+
 workflows:
   maven_test:
     jobs:
       - maven/test # checkout, build, test, and upload test results
+      - deployment
